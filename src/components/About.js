@@ -8,7 +8,7 @@ const About = () => (
       </p>
     </div>
     <div className="img">
-      <img src="http://choclacode.eu.org/assets/img/logo/avatar.png" alt="Loading Image..." />
+      <img src="/avatar.png" alt="Loading Image..." />
     </div>
   </section>
 );
