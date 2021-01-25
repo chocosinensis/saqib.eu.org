@@ -1,0 +1,32 @@
+.design {
+  &, & * {
+    font-family: $font-design;
+  }
+}
+code, pre, .code {
+  &, & * {
+    font-family: $font-code;
+  }
+}
+
+.link {
+  color: $primary-l1;
+  font-weight: 100;
+  text-shadow: 0 0 1px $primary-d2;
+}
+
+.float {
+  display: inline-block;
+  padding: 20px 40px;
+  background-color: $bg;
+  border-radius: 36px;
+  box-shadow: 0 0 8px $primary-l1;
+}
+
+@mixin media($max-width) {
+  @media screen and (max-width: $max-width) {
+    & {
+      @content;
+    }
+  }
+}

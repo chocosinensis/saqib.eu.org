@@ -1,0 +1,183 @@
+main {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 15vh 10% 30vh;
+
+  @mixin code($color) {
+    &, &::selection {
+      color: $color;
+      text-shadow: 0 0 5px $primary-l2;
+    }
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    h1.name {
+      color: $text-l;
+      font-size: 2.3rem;
+      font-weight: normal;
+      letter-spacing: 1.2px;
+      text-shadow: 0 0 3px $text-l;
+
+      @include media($breakpoint-lg) {
+        font-size: 1.7rem;
+        text-align: center;
+      }
+    }
+
+    .tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+      width: 200px;
+      padding: 10px 20px;
+      margin-bottom: 100px;
+      background-color: $bg;
+      position: relative;
+      border-radius: 0 36px 36px 0;
+      box-shadow: 0 0 10px rgba($color: $primary-d1, $alpha: 0.4);
+      overflow: hidden;
+
+      &-border {
+        height: 100%;
+        width: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba($color: $primary-d1, $alpha: 0.4);
+      }
+
+      @include media($breakpoint-lg) {
+        margin-top: 150px;
+      }
+    }
+
+    @include media($breakpoint-lg) {
+      flex: 2;
+      align-items: inherit;
+    }
+  }
+
+  svg {
+    max-width: $breakpoint-xl;
+    position: absolute;
+    top: 25%;
+    left: 0;
+
+    @include media($breakpoint-lg) {
+      top: 15%;
+    }
+  }
+
+  .editor {
+    height: 450px;
+    min-width: 600px;
+    background: $primary-l2;
+    position: relative;
+    border-radius: 15px;
+    opacity: 0.8;
+    overflow: hidden;
+    z-index: 3;
+    box-shadow: 0 0 5px rgba($color: $primary-d2, $alpha: 0.5);
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $primary;
+      padding: 15px 30px 15px 20px;
+      box-shadow: 0 0 5px $primary;
+
+      .btns {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .btn {
+          height: 20px;
+          width: 20px;
+          margin-right: 10px;
+          border-radius: 50%;
+          box-shadow: 0 0 1px $text-d;
+
+          &.red {
+            background-color: #ff605c;
+          }
+          &.orange {
+            background-color: #ffbd44;
+          }
+          &.green {
+            background-color: #00ca4e;
+          }
+        }
+      }
+
+      .topic {
+        code {
+          @include code($primary-l2);
+        }
+      }
+    }
+
+    .shadow {
+      width: 25%;
+      height: 200%;
+      background-color: rgba($color: $text-l, $alpha: 0.2);
+      position: absolute;
+      top: -50%;
+      left: 100;
+      transform: rotateZ(30deg);
+      transform-origin: top;
+    }
+
+    .body {
+      min-height: 450px;
+      background-image: linear-gradient(
+        to top right,
+        rgba($color: $primary-d2, $alpha: 0.75),
+        rgba($color: $primary-d2, $alpha: 0.25)
+      );
+      padding: 30px;
+
+      pre {
+        @include code($primary-l2);
+
+        span.normal {
+          @include code($text-l);
+        }
+      }
+
+      @include media($breakpoint-lg) {
+        overflow-x: scroll;
+      }
+    }
+
+    @include media($breakpoint-lg) {
+      height: 350px;
+      min-width: 60% !important;
+      max-width: 100% !important;
+      margin: auto;
+    }
+
+    @include media($breakpoint-md) {
+      min-width: 80% !important;
+      max-width: 100% !important;
+    }
+
+    @include media($breakpoint-sm) {
+      min-width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+
+  @include media($breakpoint-lg) {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Lobster&family=Fira+Code:wght@500');
+@import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css');
+
+* {
+  color: $text;
+  font-family: $font;
+  cursor: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+
+  &, &::before, &::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  &::selection {
+    color: $text;
+  }
+
+  &::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+}
+
+body {
+  background-color: $bg;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  list-style-type: none;
+}
