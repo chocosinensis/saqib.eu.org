@@ -1,3 +1,5 @@
+import Me from '../assets/meatrooftop.png';
+
 const About = () => (
   <section id="about">
     <div className="text">
@@ -8,7 +10,7 @@ const About = () => (
       </p>
     </div>
     <div className="img">
-      <img src="/avatar.png" alt="Loading Image..." />
+      <img src={Me} alt="Loading Image..." />
     </div>
   </section>
 );

@@ -10,6 +10,7 @@ const Cursor = () => {
       setTop(height < pageY ? height - pageY : pageY);
       setLeft(innerWidth < pageX ? innerWidth - pageX : pageX);
     });
+    document.addEventListener('scroll', () => setTop(-20));
   }, []);
 
   return (
