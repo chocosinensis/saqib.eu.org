@@ -18,9 +18,9 @@ const Footer = () => (
 );
 
 const links = [
-  { href: 'mailto:contact@saqib.ml', name: 'envelope' },
   { href: 'https://github.com/choclacode/saqib.ml', name: 'github' },
   { href: 'https://twitter.com/choclacode', name: 'twitter' },
+  { href: 'https://youtube.com/channel/UCuxNNDSPkN4MTbyubs9OQfQ', name: 'youtube' },
   { href: 'https://instagram.com/choclacode', name: 'instagram' },
   { href: 'https://facebook.com/choclacode', name: 'facebook' }
 ];

@@ -1,6 +1,6 @@
 {
   "name": "com",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.8",
@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "watch:sass": "npx node-sass -w src/assets/sass/main.scss -o src/assets/styles"
+    "watch:sass": "npx node-sass -w src/assets/sass/main.scss -o src/assets/styles --output-style compressed"
   },
   "browserslist": {
     "production": [
