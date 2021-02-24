@@ -1,23 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const Tag = () => {
   const [tag, setTag] = useState({ type: 'code', text: 'Developer' });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTag({
-        type: tag.type === 'code' ? 'design' :
-          tag.type === 'design' ? '' :
-          tag.type === '' ? 'code' : '',
-        text: tag.type === 'code' ? 'Designer' :
-          tag.type === 'design' ? 'Student' :
-          tag.type === '' ? 'Developer' : ''
-      });
-    }, 8000);
-
-    return () => clearInterval(interval);
-  }, [tag]);
+  const [iter, setIter] = useState(0);
 
   return (
     <motion.div className="tag"
@@ -29,18 +15,24 @@ const Tag = () => {
         initial={{ x: -10 }}
         animate={{ x: 200 }}
         transition={{
-          ease: 'easeInOut', type: 'tween', delay: 7.5, duration: 0.5,
+          ease: 'easeInOut', type: 'keyframes', delay: 7.5, duration: 0.5,
           repeat: Infinity, repeatType: 'mirror', repeatDelay: 7.5,
         }}
       ></motion.div>
-      <motion.span className={tag.type}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          ease: 'linear', type: 'tween', duration: 4,
-          repeat: Infinity, repeatType: 'mirror'
+      <span className={`tag-text ${tag.type}`}
+        onAnimationIteration={() => {
+          setIter(iter == 0 ? 1 : 0);
+          if (iter == 1)
+            setTag({
+              type: tag.type === 'code' ? 'design' :
+                tag.type === 'design' ? '' :
+                tag.type === '' ? 'code' : '',
+              text: tag.type === 'code' ? 'Designer' :
+                tag.type === 'design' ? 'Student' :
+                tag.type === '' ? 'Developer' : ''
+            });
         }}
-      >{tag.text}</motion.span>
+      >{tag.text}</span>
     </motion.div>
   );
 }

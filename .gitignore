@@ -11,6 +11,7 @@
 # production
 /build
 /.firebase
+/src/assets/styles/**
 
 # misc
 .DS_Store

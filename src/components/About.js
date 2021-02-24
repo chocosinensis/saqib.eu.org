@@ -1,4 +1,5 @@
 import Me from '../assets/meatrooftop.png';
+import { Shadow } from './shared';
 
 const About = () => (
   <section id="about">
@@ -9,8 +10,11 @@ const About = () => (
         I love to code very much, especially creating web apps and servers. {''}
       </p>
     </div>
-    <div className="img">
-      <img src={Me} alt="Loading Image..." />
+    <div className="img-cont">
+      <div className="img">
+        <Shadow />
+        <img src={Me} alt="Loading Image..." />
+      </div>
     </div>
   </section>
 );

@@ -9,10 +9,26 @@ code, pre, .code {
   }
 }
 
-.link {
-  color: $primary-l1;
-  font-weight: 100;
-  text-shadow: 0 0 1px $primary-d2;
+.link,
+.hover-link:hover {
+  &, & * {
+    color: $primary-l1 !important;
+    font-weight: 100;
+    text-shadow: 0 0 1px $primary-d2;
+    transition: color 0.2s ease;
+  }
+}
+
+.shadow {
+  width: 25%;
+  height: 200%;
+  background-color: rgba($color: $text-l, $alpha: 0.2);
+  position: absolute;
+  top: -50%;
+  left: 100;
+  transform: rotateZ(30deg);
+  transform-origin: top;
+  z-index: 1;
 }
 
 .float {
@@ -28,5 +44,14 @@ code, pre, .code {
     & {
       @content;
     }
+  }
+}
+
+@keyframes tag {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

@@ -19,15 +19,18 @@ main {
     justify-content: space-between;
 
     h1.name {
-      color: $text-l;
-      font-size: 2.3rem;
-      font-weight: normal;
-      letter-spacing: 1.2px;
-      text-shadow: 0 0 3px $text-l;
-
-      @include media($breakpoint-lg) {
-        font-size: 1.7rem;
-        text-align: center;
+      &, & span {
+        display: inline-block;
+        color: $text-l;
+        font-size: 2.3rem;
+        font-weight: normal;
+        letter-spacing: 1.2px;
+        text-shadow: 0 0 3px $text-l;
+  
+        @include media($breakpoint-lg) {
+          font-size: 1.7rem;
+          text-align: center;
+        }
       }
     }
 
@@ -52,6 +55,10 @@ main {
         top: 0;
         left: 0;
         background-color: rgba($color: $primary-d1, $alpha: 0.4);
+      }
+
+      &-text {
+        animation: tag 4s linear infinite alternate;
       }
 
       @include media($breakpoint-lg) {
@@ -124,17 +131,6 @@ main {
           @include code($primary-l2);
         }
       }
-    }
-
-    .shadow {
-      width: 25%;
-      height: 200%;
-      background-color: rgba($color: $text-l, $alpha: 0.2);
-      position: absolute;
-      top: -50%;
-      left: 100;
-      transform: rotateZ(30deg);
-      transform-origin: top;
     }
 
     .body {

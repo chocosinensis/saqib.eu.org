@@ -16,7 +16,7 @@ $font-design: 'Lobster', sans-serif;
 $font-code: 'Fira Code', monospace;
 
 // Background
-$bg: rgba(0, 0, 0, 0.95);
+$bg: rgba($color: $text-d, $alpha: 0.95);
 
 // Breakpoints
 $breakpoint-sm: 576px;

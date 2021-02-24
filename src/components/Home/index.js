@@ -1,13 +1,12 @@
-import Plant from './Plant';
-import Editor from './Editor';
+import Me from './Me';
 import Tag from './Tag';
+import Editor from './Editor';
+import Plant from './Plant';
 
 const Home = () => (
   <main>
     <div className="left">
-      <h1 className="design name">
-        It's me, <br/> Nazmus Saqib
-      </h1>
+      <Me />
       <Tag />
     </div>
     <Editor />

@@ -1,15 +1,11 @@
-import Navbar from './Navbar';
-import Cursor from './Cursor';
-import Footer from './Footer';
+import {
+  Header, Footer,
+  Cursor
+} from './shared';
 
-import Home from './Home';
-import About from './About';
-import Explore from './Explore';
-import Contact from './Contact';
-
-const Layout = ({ children }) => (
+export const Layout = ({ children }) => (
   <>
-    <Navbar />
+    <Header />
     <Cursor />
     <div className="sections">
       {children}
@@ -18,7 +14,7 @@ const Layout = ({ children }) => (
   </>
 );
 
-export {
-  Layout,
-  Home, About, Explore, Contact
-};
+export { default as Home } from './Home';
+export { default as About } from './About';
+export { default as Explore } from './Explore';
+export { default as Contact } from './Contact';
