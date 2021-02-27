@@ -22,120 +22,31 @@
 }
 
 @import 'home';
+@import 'articles';
+@import 'projects';
 
-#about {
+.notfound {
+  min-height: 85vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: $bg;
-  padding: 20px 10%;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 2em;
 
-  .text {
-    h1 {
-      color: $text-l;
-
-      @include media($breakpoint-md) {
-        margin-top: 20px;
-      }
-    }
-
-    p {
-      margin: 20px 0;
-    }
-  }
-
-  .img-cont {
-    height: 300px;
-    width: 300px;
-    padding: 40px;
-
-    .img {
-      height: 100%;
-      width: 100%;
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      transform: translateX(-40px);
-
-      img {
-        height: 100%;
-        width: 100%;
-        border-radius: 20px;
-        object-fit: contain;
-      }
-    }
-
-    &:hover {
-      .img {
-        transform: translateX(20px);
-      }
-    }
-
-    @include media($breakpoint-md) {
-      .img {
-        transform: translateX(0);
-      }
-
-      &:hover {
-        .img {
-          transform: scale(1.2);
-        }
-      }
-    }
-  }
-
-  @include media($breakpoint-md) {
-    flex-direction: column;
-  }
-}
-
-#explore {
-  padding: 50px 10%;
-
-  h1 {
+  .status {
     color: $text-l;
+    padding: 5px 10px;
+    letter-spacing: 0.1em;
+    border-right: 3px solid rgba($color: $primary-l2, $alpha: 0.4);
   }
 
-  .paras {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-
-    p {
-      max-width: 600px;
-      margin: 25px 0;
-
-      &:nth-child(even) {
-        align-self: flex-end;
-      }
-    }
-  }
-}
-
-#contact {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: rgba($color: #000, $alpha: 0.5);
-  padding: 50px 10%;
-
-  h1 {
-    color: $text-l;
-  }
-
-  .float {
-    border-radius: 36px 0 0 36px;
-
-    @include media($breakpoint-md) {
-      margin-top: 30px;
-      align-self: flex-end;
-    }
-  }
-
-  @include media($breakpoint-md) {
-    flex-direction: column;
-    align-items: flex-start;
+  .detail {
+    color: rgba($color: $primary-d1, $alpha: 0.4);
+    font-size: 0.75em;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-left: 10px;
   }
 }
 

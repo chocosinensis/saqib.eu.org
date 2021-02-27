@@ -1,5 +1,5 @@
-import Me from '../assets/meatrooftop.png';
-import { Shadow } from './shared';
+import Me from '../../assets/img/meatrooftop.png';
+import { Shadow } from '../../components';
 
 const About = () => (
   <section id="about">

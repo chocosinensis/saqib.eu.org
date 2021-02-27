@@ -1,14 +1,8 @@
-import {
-  Layout,
-  Home, About, Explore, Contact
-} from './components';
+import { Layout, Routes } from './routes';
 
 const App = () => (
   <Layout>
-    <Home />
-    <About />
-    <Explore />
-    <Contact />
+    <Routes />
   </Layout>
 );
 

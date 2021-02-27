@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shadow } from '../shared';
+
+import { Shadow } from '../../../components';
 
 const Editor = () => {
   const [code, setCode] = useState({

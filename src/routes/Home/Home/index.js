@@ -4,14 +4,14 @@ import Editor from './Editor';
 import Plant from './Plant';
 
 const Home = () => (
-  <main>
+  <section id="home">
     <div className="left">
       <Me />
       <Tag />
     </div>
     <Editor />
     <Plant />
-  </main>
+  </section>
 );
 
 export default Home;

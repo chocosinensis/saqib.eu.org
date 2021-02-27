@@ -6,7 +6,8 @@
   font-family: $font;
   cursor: none;
   scroll-behavior: smooth;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: $text-d rgba($color: $text, $alpha: 0.1);
 
   &, &::before, &::after {
     margin: 0;
@@ -16,11 +17,23 @@
 
   &::selection {
     color: $text;
+    background-color: $bg;
   }
 
   &::-webkit-scrollbar {
     height: 0;
-    width: 0;
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $text-d;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba($color: $text-d, $alpha: 0.7);
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba($color: $text, $alpha: 0.1);
   }
 }
 
@@ -34,4 +47,22 @@ a {
 }
 ul {
   list-style-type: none;
+}
+article {
+  text-align: justify;
+
+  p {
+    line-height: 1.75rem;
+    margin: 10px 0;
+  }
+}
+blockquote {
+  padding-left: 20px;
+  border-left: 4px solid rgba($color: $primary, $alpha: 0.5);
+}
+hr {
+  max-width: 240px;
+  margin: 20px auto 30px 0;
+  border-color: $primary;
+  opacity: 0.4;
 }

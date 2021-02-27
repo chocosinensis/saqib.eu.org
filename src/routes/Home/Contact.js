@@ -1,5 +1,5 @@
 const Contact = () => (
-  <section id="contact">
+  <section id="contact" className="flex">
     <h1>Contact</h1>
     <div className="float">
       <span>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
-
-import { LinkShadow } from './';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [aside, setAside] = useState(false);
@@ -9,7 +8,7 @@ const Header = () => {
   return (
     <header>
       <div className="logo">
-        <a href="/" className="design">Saqib</a>
+        <Link to="/" className="design">Saqib</Link>
       </div>
       <nav>
         <button className="bars" onClick={() => setAside(!aside)}>
@@ -18,25 +17,21 @@ const Header = () => {
         <ul className={`links ${aside ? 'show' : ''}`}>
           {links.map(([h, n]) => (
             <li key={h}>
-              <a href={h}
-                onClick={() => setShadow(true)}
-              >{n}</a>
+              <Link to={h}
+                onClick={() => setAside(false)}
+              >{n}</Link>
             </li>
           ))}
         </ul>
       </nav>
-      {shadow && <LinkShadow onTransitionEnd={() => {
-        setShadow(false);
-        setAside(false);
-      }} />}
     </header>
   );
 }
 
 const links = [
-  ['#about', 'About'],
-  ['#explore', 'Explore'],
-  ['#contact', 'Contact']
+  ['/', 'Home'],
+  ['/articles', 'Articles'],
+  ['/projects', 'Projects']
 ];
 
 export default Header;

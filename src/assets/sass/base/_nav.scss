@@ -92,8 +92,8 @@ header {
       }
 
       &.show {
-        clip-path: circle(120vw at 90% -10%);
-        -webkit-clip-path: circle(120vw at 90% -10%);
+        clip-path: circle(calc(100vh + 100vw) at 90% -10%);
+        -webkit-clip-path: circle(calc(100vh + 100vw) at 90% -10%);
         pointer-events: all;
 
         li {
@@ -101,18 +101,6 @@ header {
         }
       }
     }
-  }
-
-  .link-shadow {
-    height: 200vh;
-    width: 40vw;
-    background-color: rgba($color: $primary-l1, $alpha: 0.80);
-    position: absolute;
-    top: -45vh;
-    left: -25vw;
-    transform: rotate(30deg);
-    transition: all 0.2s ease;
-    z-index: 12;
   }
 
   @include media($breakpoint-sm) {
