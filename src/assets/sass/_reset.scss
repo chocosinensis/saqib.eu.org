@@ -55,6 +55,10 @@ article {
     line-height: 1.75rem;
     margin: 10px 0;
   }
+
+  ul, ol {
+    padding-inline-start: 20px;
+  }
 }
 blockquote {
   padding-left: 20px;

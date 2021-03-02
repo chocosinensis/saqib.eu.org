@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 import { Shadow } from '../../../components';
+import { useTitle } from '../../../hooks';
 
 const Editor = () => {
   const [code, setCode] = useState({
@@ -21,11 +22,11 @@ const Editor = () => {
 
     return () => clearInterval(interval);
   }, [code]);
+  useTitle('Home');
 
   return (
     <motion.div className="editor"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.8 }}
+      initial={{ opacity: 0 }} animate={{ opacity: 0.8 }}
       transition={{ duration: 0.5, delay: 1, ease: 'easeInOut' }}
     >
       <header>

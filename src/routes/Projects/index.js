@@ -1,8 +1,10 @@
 import { Card, FadeIn } from '../../components';
-import { useFetch } from '../../hooks';
+import { useFetch, useTitle } from '../../hooks';
 
 const Projects = () => {
   const [projects] = useFetch('projects');
+
+  useTitle('Projects');
 
   return (
     <section className="projects">

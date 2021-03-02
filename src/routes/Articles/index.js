@@ -1,10 +1,12 @@
 import marked from 'marked';
 
 import { Card, FadeIn } from '../../components';
-import { useFetch } from '../../hooks';
+import { useFetch, useTitle } from '../../hooks';
 
 const Articles = () => {
   const [articles] = useFetch('articles');
+
+  useTitle('Articles');
 
   return (
     <section className="articles">

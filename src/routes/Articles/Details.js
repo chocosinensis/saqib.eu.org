@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import marked from 'marked';
 
 import { FadeIn } from '../../components';
-import { useResource } from '../../hooks';
+import { useResource, useTitle } from '../../hooks';
 
 const Details = () => {
   const [__html, set__html] = useState('<p></p>');
@@ -15,6 +15,7 @@ const Details = () => {
     if (article)
       set__html(marked(article.body.join('\n\n')));
   }, [article]);
+  useTitle(article.title, article.author[1]);
 
   return (
     <section className="article">

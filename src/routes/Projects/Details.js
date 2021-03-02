@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FadeIn } from '../../components';
-import { useResource } from '../../hooks';
+import { useResource, useTitle } from '../../hooks';
 
 const Details = () => {
   const [pointerEvents, setPointerEvents] = useState('none');
@@ -11,6 +11,7 @@ const Details = () => {
   });
 
   useEffect(() => setPointerEvents('none'), [pointerEvents]);
+  useTitle(project.title, project.author[1]);
 
   return (
     <section className="project">
