@@ -31,7 +31,7 @@ footer {
 
       &:hover {
         i {
-          text-shadow: 0 0 3px rgba($color: $text-d, $alpha: 0.5);
+          text-shadow: 0 0 2px $text;
           transform: translateY(-10px);
 
           &.fa- {
