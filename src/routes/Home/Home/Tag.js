@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+import { FadeInText } from '../../../components';
+
 const Tag = () => {
   const [tag, setTag] = useState({ type: 'code', text: 'Developer' });
-  const [iter, setIter] = useState(0);
 
   return (
     <motion.div className="tag"
@@ -19,20 +20,16 @@ const Tag = () => {
           repeat: Infinity, repeatType: 'mirror', repeatDelay: 7.5,
         }}
       ></motion.div>
-      <span className={`tag-text ${tag.type}`}
-        onAnimationIteration={() => {
-          setIter(iter == 0 ? 1 : 0);
-          if (iter == 1)
-            setTag({
-              type: tag.type === 'code' ? 'design' :
-                tag.type === 'design' ? '' :
-                tag.type === '' ? 'code' : '',
-              text: tag.type === 'code' ? 'Designer' :
-                tag.type === 'design' ? 'Student' :
-                tag.type === '' ? 'Developer' : ''
-            });
-        }}
-      >{tag.text}</span>
+      <FadeInText className={tag.type}
+        onIter={() => setTag({
+          type: tag.type === 'code' ? 'design' :
+            tag.type === 'design' ? '' :
+            tag.type === '' ? 'code' : '',
+          text: tag.type === 'code' ? 'Designer' :
+            tag.type === 'design' ? 'Student' :
+            tag.type === '' ? 'Developer' : ''
+        })}
+      >{tag.text}</FadeInText>
     </motion.div>
   );
 }

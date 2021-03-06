@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { Links } from './';
+import { useScroll } from '../../hooks';
+
 const Header = () => {
   const [aside, setAside] = useState(false);
-  const [shadow, setShadow] = useState(false);
+  const [top] = useScroll(0, -70);
 
   return (
-    <header>
+    <>
+    <header style={{ top }}>
       <div className="logo">
         <Link to="/" className="design">Saqib</Link>
       </div>
@@ -14,24 +18,11 @@ const Header = () => {
         <button className="bars" onClick={() => setAside(!aside)}>
           <i className={`fas fa-${aside ? 'times' : 'bars'}`}></i>
         </button>
-        <ul className={`links ${aside ? 'show' : ''}`}>
-          {links.map(([h, n]) => (
-            <li key={h}>
-              <Link to={h}
-                onClick={() => setAside(false)}
-              >{n}</Link>
-            </li>
-          ))}
-        </ul>
       </nav>
     </header>
+    <Links aside={aside} setAside={setAside} />
+    </>
   );
 }
-
-const links = [
-  ['/', 'Home'],
-  ['/articles', 'Articles'],
-  ['/projects', 'Projects']
-];
 
 export default Header;

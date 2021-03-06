@@ -2,13 +2,16 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 70px;
+  width: 100%;
   padding: 20px 10%;
   background-color: $text-d;
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 6;
+  z-index: 8;
   box-shadow: 0 0 5px $text-d;
+  transition: top 0.2s ease;
 
   .logo {
     flex: 2;
@@ -42,66 +45,57 @@ header {
         text-shadow: 0 0 5px $text-l;
       }
     }
+  }
 
-    .links {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 0;
-      position: fixed;
-      top: 70px;
-      left: 0;
-      background-color: rgba($color: $text-d, $alpha: 0.95);
-      transition: all 1s ease-out;
-      z-index: 6;
-      clip-path: circle(0 at 90% -10%);
-      -webkit-clip-path: circle(0 at 90% -10%);
-      pointer-events: none;
-
-      li {
-        margin: 0 0 50px;
-        transition: all 0.4s ease-out;
-        opacity: 0;
-
-        &:nth-child(1) {
-          transition-delay: 0.2s;
-        }
-        &:nth-child(2) {
-          transition-delay: 0.4s;
-        }
-        &:nth-child(3) {
-          transition-delay: 0.6s;
-        }
-
-        a {
-          color: $text-l;
-          display: inline-block;
-          width: 100%;
-          height: 100%;
-          padding: 15px 20px;
-          transition: all 0.2s ease;
-
-          &:hover {
-            background-color: $primary;
-            color: $text-d;
-          }
-        }
-      }
-
-      &.show {
-        clip-path: circle(calc(100vh + 100vw) at 90% -10%);
-        -webkit-clip-path: circle(calc(100vh + 100vw) at 90% -10%);
-        pointer-events: all;
-
-        li {
-          opacity: 1;
+  & ~ .links {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: $text-d, $alpha: 0.95);
+    transition: all 1s ease-out,
+      top 0.2s ease;
+    z-index: 4;
+    clip-path: circle(0 at 90% -10%);
+    -webkit-clip-path: circle(0 at 90% -10%);
+    pointer-events: none;
+  
+    li {
+      margin: 25px 0;
+      transition: all 0.4s ease-out;
+      opacity: 0;
+  
+      a {
+        color: $text-l;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding: 15px 20px;
+        transition: all 0.2s ease;
+  
+        &:hover {
+          background-color: $primary;
+          color: $text-d;
         }
       }
     }
-  }
+  
+    &.show {
+      clip-path: circle(calc(100vh + 100vw) at 90% -10%);
+      -webkit-clip-path: circle(calc(100vh + 100vw) at 90% -10%);
+      pointer-events: all;
+  
+      li {
+        opacity: 1;
+      }
+    }
+  }  
 
   @include media($breakpoint-sm) {
     padding: 10px 10%;

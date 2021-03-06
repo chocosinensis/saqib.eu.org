@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-import { Shadow } from '../../../components';
+import { Shadow, FadeInText } from '../../../components';
 import { useTitle } from '../../../hooks';
 
 const Editor = () => {
@@ -9,19 +9,6 @@ const Editor = () => {
     topic: 'Express',
     Body: Codes.Express
   });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCode({
-        topic: code.topic === 'Express'
-          ? 'Flask' : 'Express',
-        Body: code.Body === Codes.Express
-          ? Codes.Flask : Codes.Express
-      });
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [code]);
   useTitle('Home');
 
   return (
@@ -36,11 +23,19 @@ const Editor = () => {
           <span className="btn green"></span>
         </div>
         <div className="topic">
-          <code>{code.topic}</code>
+          <FadeInText code
+            onIter={() => setCode({ ...code,
+              topic: code.topic === 'Express' ? 'Flask' : 'Express'
+            })}
+          >{code.topic}</FadeInText>
         </div>
       </header>
       <Shadow />
-      <div className="body">{<code.Body />}</div>
+      <div className="body">
+        <FadeInText onIter={() => setCode({ ...code,
+          Body: code.Body === Codes.Express ? Codes.Flask : Codes.Express
+        })}><code.Body /></FadeInText>
+      </div>
     </motion.div>
   );
 }

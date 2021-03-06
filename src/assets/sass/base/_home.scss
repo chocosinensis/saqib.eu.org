@@ -57,10 +57,6 @@
         background-color: rgba($color: $primary-d1, $alpha: 0.4);
       }
 
-      &-text {
-        animation: tag 4s linear infinite alternate;
-      }
-
       @include media($breakpoint-lg) {
         margin-top: 150px;
       }
@@ -101,6 +97,7 @@
       background-color: $primary;
       padding: 15px 30px 15px 20px;
       box-shadow: 0 0 5px $primary;
+      position: static;
 
       .btns {
         display: flex;
@@ -142,7 +139,15 @@
       );
       padding: 30px;
 
+      span.fadein {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+
       pre {
+        height: 100%;
+        width: 100%;
         @include code($primary-l2);
 
         span.normal {

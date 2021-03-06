@@ -120,7 +120,11 @@ code, pre, .code {
   }
 }
 
-@keyframes tag {
+.fadein {
+  animation: fadein 4s linear infinite alternate;
+}
+
+@keyframes fadein {
   from {
     opacity: 0;
   }
