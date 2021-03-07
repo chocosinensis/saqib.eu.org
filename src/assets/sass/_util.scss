@@ -132,3 +132,17 @@ code, pre, .code {
     opacity: 1;
   }
 }
+
+@keyframes cursorexpand {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}

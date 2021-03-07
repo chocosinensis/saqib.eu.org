@@ -4,30 +4,44 @@ import { useHistory } from 'react-router-dom';
 const Cursor = () => {
   const [top, setTop] = useState(-40);
   const [left, setLeft] = useState(-40);
+  const [opacity, setOpacity] = useState(0);
+  const [clicked, setClicked] = useState(false);
+  const [timer, setTimer] = useState(null);
   const history = useHistory();
 
   const set = (x, y) => {
-    const height = scrollY + innerHeight - 5;
-    setTop(height < y ? height - y : y);
-    setLeft(innerWidth < x ? innerWidth - x : x);
+    setTop(y);
+    setLeft(x);
   }
-  const moveCursor = ({ pageX, pageY, targetTouches }) => {
-    if (pageX && pageY)
-      set(pageX, pageY);
+  const move = ({ clientX, clientY, targetTouches }) => {
+    setOpacity(1);
+    clearTimeout(timer);
+    setTimer(setTimeout(() => setOpacity(0), 400));
+
+    if (clientX && clientY)
+      return set(clientX, clientY);
     else if (targetTouches)
-      set(targetTouches[0].pageX, targetTouches[0].pageY);
+      return set(targetTouches[0].clientX, targetTouches[0].clientY);
+  }
+  const expand = () => {
+    setClicked(true);
+    setTimeout(() => setClicked(false), 400);
   }
 
   useEffect(() => {
-    document.addEventListener('mousemove', moveCursor);
-    document.addEventListener('touchmove', moveCursor);
-    document.addEventListener('scroll', () => setTop(-40));
+    document.addEventListener('mousemove', move);
+    document.addEventListener('mouseleave', () => set(-40, -40));
+    document.addEventListener('touchmove', move);
+    document.addEventListener('touchend', () => set(-40, -40));
+    document.addEventListener('click', expand);
   }, []);
 
   useEffect(() => history.listen(() => scrollTo(0, 0)), []);
 
   return (
-    <div className="cursor" style={{ top, left }}>
+    <div style={{ top, left, opacity }}
+      className={`cursor ${clicked ? 'expand' : ''}`}
+    >
       <div></div>
     </div>
   );
