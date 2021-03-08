@@ -14,7 +14,7 @@ const Cursor = () => {
     setLeft(x);
   }
   const move = ({ clientX, clientY, targetTouches }) => {
-    setOpacity(1);
+    setOpacity(0.5);
     clearTimeout(timer);
     setTimer(setTimeout(() => setOpacity(0), 400));
 
@@ -30,9 +30,7 @@ const Cursor = () => {
 
   useEffect(() => {
     document.addEventListener('mousemove', move);
-    document.addEventListener('mouseleave', () => set(-40, -40));
     document.addEventListener('touchmove', move);
-    document.addEventListener('touchend', () => set(-40, -40));
     document.addEventListener('click', expand);
   }, []);
 
