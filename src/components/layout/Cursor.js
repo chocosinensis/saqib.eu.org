@@ -16,7 +16,7 @@ const Cursor = () => {
   const move = ({ clientX, clientY, targetTouches }) => {
     setOpacity(0.5);
     clearTimeout(timer);
-    setTimer(setTimeout(() => setOpacity(0), 400));
+    setTimer(setTimeout(() => setOpacity(0), 1200));
 
     if (clientX && clientY)
       return set(clientX, clientY);
