@@ -6,13 +6,13 @@ const Me = () => (
       initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, ease: 'easeIn' }}
-    >It's me,</motion.span>
+    >Nazmus Saqib</motion.span>
     <br/>
-    <motion.span
+    <motion.span className="small"
       initial={{ opacity: 0, y: 25 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.2, ease: 'easeIn', delay: 0.2 }}
-    >Nazmus Saqib</motion.span>
+    >Trying to be A Tranquil Soul</motion.span>
   </h1>
 );
 

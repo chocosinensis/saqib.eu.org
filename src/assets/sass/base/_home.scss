@@ -22,11 +22,17 @@
       &, & span {
         display: inline-block;
         color: $text-l;
-        font-size: 2.3rem;
+        font-size: 2rem;
         font-weight: normal;
-        letter-spacing: 1.2px;
+        letter-spacing: 1px;
         text-shadow: 0 0 3px $text-l;
-  
+
+        &.small {
+          font-size: 1.25rem !important;
+          letter-spacing: 0.5px !important;
+          text-shadow: 0 0 2px $text-l;
+        }
+
         @include media($breakpoint-lg) {
           font-size: 1.7rem;
           text-align: center;
@@ -255,6 +261,7 @@
 }
 
 #explore {
+  background-color: rgba($color: $text-d, $alpha: 0.5);
   padding: 50px 10%;
 
   h1 {
@@ -278,7 +285,7 @@
 }
 
 #contact {
-  background-color: rgba($color: #000, $alpha: 0.5);
+  background-color: rgba($color: $text-d, $alpha: 0.5);
   padding: 50px 10%;
 
   h1 {

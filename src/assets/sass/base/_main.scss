@@ -1,33 +1,5 @@
 @import 'nav';
 
-.cursor {
-  height: 3vh;
-  width: 3vh;
-  max-height: 25px;
-  max-width: 25px;
-  background-color: $bg;
-  opacity: 0.5;
-  border: 0.5px solid $primary-l2;
-  border-radius: 50%;
-  box-shadow: 0 0 5px $primary-l2;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  pointer-events: none;
-  transition: opacity 0.2s ease;
-
-  div {
-    height: 100%;
-    width: 100%;
-    box-shadow: inset 0 0 5px $primary-l2;
-    border-radius: 50%;
-  }
-
-  &.expand {
-    animation: cursorexpand 0.4s ease forwards;
-  }
-}
-
 @import 'home';
 @import 'articles';
 @import 'projects';
