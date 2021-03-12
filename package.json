@@ -11,7 +11,7 @@
     "react-scripts": "4.0.1"
   },
   "scripts": {
-    "start": "npx concurrently \"npm run start:react\" \"npm run watch:sass\"",
+    "start": "npx concurrently \"npm:start:react\" \"npm:watch:sass\"",
     "start:react": "BROWSER=none PORT=4000 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
