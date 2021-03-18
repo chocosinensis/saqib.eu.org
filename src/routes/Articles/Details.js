@@ -22,9 +22,7 @@ const Details = () => {
       <FadeIn className="title" el="h2" delay={0.2}>
         {article.title}
       </FadeIn>
-      <FadeIn delay={0.4}>
-        <article dangerouslySetInnerHTML={{ __html }}></article>
-      </FadeIn>
+      <FadeIn delay={0.4} el="article" __html={__html} />
       <FadeIn className="flex" delay={0.6}>
         <p className="author design float">{article.author.join(' ')}</p>
         <Link to='/articles' className="float shrunk hover-link">Back</Link>
