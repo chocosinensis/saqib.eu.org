@@ -3,7 +3,7 @@ run:
 	npm start
 
 # production
-build:
+prod:
 	npm run build && \
 		firebase deploy
 
