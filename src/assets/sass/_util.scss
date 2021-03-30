@@ -201,6 +201,24 @@ code, pre, .code {
   animation: fadein 4s linear infinite alternate;
 }
 
+.search {
+  margin: 30px 0 10px;
+
+  input {
+    padding: 10px 15px;
+    background-color: $bg;
+    border: 0;
+    border-radius: 36px;
+    box-shadow: 0 0 4px $bg;
+    transition: box-shadow 0.4s ease;
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 8px $text-d;
+    }
+  }
+}
+
 @keyframes fadein {
   from {
     opacity: 0;

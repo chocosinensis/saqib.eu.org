@@ -1,7 +1,10 @@
-import { Card, FadeIn } from '../../components';
+import { useState } from 'react';
+
+import { Card, FadeIn, Search } from '../../components';
 import { useFetch, useTitle } from '../../hooks';
 
 const Projects = () => {
+  const [search, setSearch] = useState('');
   const [projects] = useFetch('projects');
 
   useTitle('Projects');
@@ -9,7 +12,9 @@ const Projects = () => {
   return (
     <section className="projects">
       <FadeIn el="h2">Projects</FadeIn>
-      <ul>{projects && projects.map(({ title, name, author }, i) => (
+      <Search set={setSearch} />
+      <ul>{projects && projects.filter(({ title }) => Search.match(title, search))
+        .map(({ title, name, author }, i) => (
         <li key={i}>
           <Card href={`/projects/${name}`} title={title}
             author={author[1]} i={i}

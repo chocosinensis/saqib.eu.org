@@ -9,6 +9,8 @@ AKA [`Choclacode`](http://choclacode.eu.org)
 
 These are the source files for the website, which was created using [`React`](https://reactjs.org), [React Router](https://reactrouter.com) and [Framer Motion](https://framer.com/motion).
 
+![me](src/assets/img/meatrooftop.png)
+
 ---
 
 To run this locally, make sure you have [`Node.js`](https://nodejs.org) installed.

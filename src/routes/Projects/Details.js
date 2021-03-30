@@ -24,7 +24,7 @@ const Details = () => {
         </FadeIn>
       </div>
       <FadeIn className="preview" delay={0.4}>
-        <iframe src={project.href} style={{ pointerEvents }}></iframe>
+        <iframe src={project.backupHref ?? project.href} style={{ pointerEvents }} />
       </FadeIn>
       <FadeIn el="ul" delay={0.6}>{project.technologies.map((t, i) => (
         <FadeIn key={t} el="li" className="float"
