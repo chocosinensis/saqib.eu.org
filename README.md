@@ -25,11 +25,10 @@ $ cd saqib.ml
 $ npm i # "npm install" will also work
 ```
 
-Generate the `styles/main.css` file
+Build the `styles/main.css` file
 ```bash
-$ npm run watch:sass
+$ npm run build:sass
 ```
-and save any `sass/**.scss` file for watching and processing css.
 
 To view it inside the browser, run this command
 ```bash

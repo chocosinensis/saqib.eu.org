@@ -9,7 +9,9 @@
   scrollbar-width: thin;
   scrollbar-color: $text-d rgba($color: $text, $alpha: 0.1);
 
-  &, &::before, &::after {
+  &,
+  &::before,
+  &::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -52,11 +54,12 @@ article {
   text-align: justify;
 
   p {
-    line-height: 1.75rem;
+    line-height: 2rem;
     margin: 10px 0;
   }
 
-  ul, ol {
+  ul,
+  ol {
     padding-inline-start: 20px;
   }
 }

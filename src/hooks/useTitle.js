@@ -1,12 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 
 const useTitle = (...titles) => {
   useEffect(() => {
-    const title = `${titles.join(' « ')} » Nazmus Saqib`;
-    if (document.title == title) return;
+    const title = `${titles.join(' « ')} » Nazmus Saqib`
+    if (document.title == title) return
 
-    document.title = title;
-  }, [titles]);
+    document.title = title
+  }, [titles])
 }
 
-export default useTitle;
+export default useTitle

@@ -1,9 +1,9 @@
-import { StrictMode as SMode } from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { StrictMode as SMode } from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
-import App from './App';
-import './assets/styles/main.css';
+import App from './App'
+import './assets/styles/main.css'
 
 ReactDOM.render(
   <SMode>
@@ -12,4 +12,4 @@ ReactDOM.render(
     </Router>
   </SMode>,
   document.querySelector('#app')
-);
+)

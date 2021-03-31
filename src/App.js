@@ -1,9 +1,9 @@
-import { Layout, Routes } from './routes';
+import { Layout, Routes } from './routes'
 
 const App = () => (
   <Layout>
     <Routes />
   </Layout>
-);
+)
 
-export default App;
+export default App

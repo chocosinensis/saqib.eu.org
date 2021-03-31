@@ -1,27 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 const useFetch = (resource) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(null)
 
   useEffect(() => {
-    const abC = new AbortController();
+    const abC = new AbortController()
 
-    (async () => {
+    ;(async () => {
       try {
-        const res = await fetch('/data.json', { signal: abC.signal });
-        const data = await res.json();
+        const res = await fetch('/data.json', { signal: abC.signal })
+        const data = await res.json()
 
-        setData(data[resource]);
+        setData(data[resource])
       } catch (err) {
-        if (err.name != 'AbortError')
-          setData(null);
+        if (err.name != 'AbortError') setData(null)
       }
-    })();
+    })()
 
-    return () => abC.abort();
-  }, [data]);
+    return () => abC.abort()
+  }, [data])
 
-  return [data];
+  return [data]
 }
 
-export default useFetch;
+export default useFetch

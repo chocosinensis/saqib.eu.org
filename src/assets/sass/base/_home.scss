@@ -6,7 +6,8 @@
   padding: 15vh 10% 30vh;
 
   @mixin code($color) {
-    &, &::selection {
+    &,
+    &::selection {
       color: $color;
       text-shadow: 0 0 5px $primary-l2;
     }
@@ -19,7 +20,8 @@
     justify-content: space-between;
 
     h1.name {
-      &, & span {
+      &,
+      & span {
         display: inline-block;
         color: $text-l;
         font-size: 2rem;

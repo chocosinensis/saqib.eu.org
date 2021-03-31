@@ -1,11 +1,13 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom'
 
 import {
   Home,
-  Articles, ArticleDetails,
-  Projects, ProjectDetails,
-  NotFound
-} from './';
+  Articles,
+  ArticleDetails,
+  Projects,
+  ProjectDetails,
+  NotFound,
+} from './'
 
 const Routes = () => (
   <Switch>
@@ -17,8 +19,8 @@ const Routes = () => (
     <Route exact path='/projects' component={Projects} />
     <Route path='/projects/:name' component={ProjectDetails} />
 
-    <Route path="*" component={NotFound} />
+    <Route path='*' component={NotFound} />
   </Switch>
-);
+)
 
-export default Routes;
+export default Routes
