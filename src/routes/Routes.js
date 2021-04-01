@@ -6,6 +6,7 @@ import {
   ArticleDetails,
   Projects,
   ProjectDetails,
+  Quote,
   NotFound,
 } from './'
 
@@ -18,6 +19,8 @@ const Routes = () => (
 
     <Route exact path='/projects' component={Projects} />
     <Route path='/projects/:name' component={ProjectDetails} />
+
+    <Route path='/quote' component={Quote} />
 
     <Route path='*' component={NotFound} />
   </Switch>

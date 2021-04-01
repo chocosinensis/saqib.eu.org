@@ -16,6 +16,10 @@ const links = [
   ['/', 'Home'],
   ['/articles', 'Articles'],
   ['/projects', 'Projects'],
+  [
+    '/quote?q=Edit+the+URL+directly&r=?q=Your+Quote%26r=Your+Reference',
+    'Quote',
+  ],
 ]
 
 export default Links
