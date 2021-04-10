@@ -16,7 +16,14 @@ Search.defaultProps = {
   delay: 0.4,
 }
 
-Search.match = (src, term) =>
+const match = (src, term) =>
   src.toLowerCase().includes(term.trim().toLowerCase())
+
+Search.match = ({ title = '', author = ['', ''] }, term) => {
+  if (term.startsWith('@'))
+    return match(author[1], term.substring(1, term.length) ?? '')
+
+  return match(title, term)
+}
 
 export default Search

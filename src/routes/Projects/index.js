@@ -16,7 +16,7 @@ const Projects = () => {
       <ul>
         {projects &&
           projects
-            .filter(({ title }) => Search.match(title, search))
+            .filter((project) => Search.match(project, search))
             .map(({ title, name, author }, i) => (
               <li key={i}>
                 <Card

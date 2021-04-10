@@ -17,7 +17,7 @@ const Articles = () => {
       <ul>
         {articles &&
           articles
-            .filter(({ title }) => Search.match(title, search))
+            .filter((article) => Search.match(article, search))
             .map(({ title, body, slug, author }, i) => (
               <li key={i}>
                 <Card
