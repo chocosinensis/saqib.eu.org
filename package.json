@@ -1,6 +1,6 @@
 {
   "name": "saqib.ml",
-  "version": "2.8.2",
+  "version": "2.8.3",
   "private": true,
   "dependencies": {
     "framer-motion": "^3.2.2-rc.1",

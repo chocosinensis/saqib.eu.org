@@ -58,22 +58,22 @@ const Editor = () => {
 const Codes = {
   Express: () => (
     <pre>
-      const <span className='normal'>express</span> = {''}
-      <span className='normal'>require</span>('express'); <br />
+      const <span className='normal'>express</span> ={' '}
+      <span className='normal'>require</span>('express') <br />
       <br />
-      const <span className='normal'>app</span> = {''}
-      <span className='normal'>express</span>(); <br />
+      const <span className='normal'>app</span> ={' '}
+      <span className='normal'>express</span>() <br />
       <br />
       <span className='normal'>app</span>.<span className='normal'>listen</span>
       (<span className='normal'>process</span>.
       <span className='normal'>env</span>.<span className='normal'>PORT</span>{' '}
-      ?? 3000); <br />
+      ?? 3000) <br />
       <br />
       <span className='normal'>app</span>.<span className='normal'>get</span>
       ('/', (<span className='normal'>req</span>,{' '}
       <span className='normal'>res</span>) {'=>'}{' '}
       <span className='normal'>res</span>.<span className='normal'>send</span>
-      ('Index')); <br />
+      ('Index')) <br />
       <br />
     </pre>
   ),

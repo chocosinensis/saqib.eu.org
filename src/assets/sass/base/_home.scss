@@ -81,6 +81,7 @@
     position: absolute;
     top: 25%;
     left: 0;
+    opacity: 0.7;
 
     @include media($breakpoint-lg) {
       top: 15%;
@@ -90,21 +91,25 @@
   .editor {
     height: 450px;
     min-width: 600px;
-    background: $primary-l2;
     position: relative;
     border-radius: 15px;
-    opacity: 0.8;
     overflow: hidden;
     z-index: 3;
-    box-shadow: 0 0 5px rgba($color: $primary-d2, $alpha: 0.5);
+    box-shadow: 0 0 5px rgba($color: $primary, $alpha: 0.5);
+    backdrop-filter: blur(15px) brightness(100%)
+      drop-shadow(0 0 5px rgba($color: $primary, $alpha: 0.5));
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: $primary;
+      background-image: linear-gradient(
+        to bottom left,
+        rgba($color: $primary, $alpha: 0.5),
+        rgba($color: $primary, $alpha: 0.1)
+      );
       padding: 15px 30px 15px 20px;
-      box-shadow: 0 0 5px $primary;
+      box-shadow: 0 -5px 5px $primary;
       position: static;
 
       .btns {
@@ -142,8 +147,8 @@
       min-height: 450px;
       background-image: linear-gradient(
         to top right,
-        rgba($color: $primary-d2, $alpha: 0.75),
-        rgba($color: $primary-d2, $alpha: 0.25)
+        rgba($color: $primary, $alpha: 0.5),
+        rgba($color: $primary-d1, $alpha: 0.1)
       );
       padding: 30px;
 
