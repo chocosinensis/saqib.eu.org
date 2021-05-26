@@ -31,22 +31,9 @@ const Tag = () => {
         className={tag.type}
         onIter={() =>
           setTag({
-            type:
-              tag.type === 'code'
-                ? 'design'
-                : tag.type === 'design'
-                ? ''
-                : tag.type === ''
-                ? 'code'
-                : '',
+            type: tag.type === 'code' ? 'design' : tag.type === 'design' ? '' : tag.type === '' ? 'code' : '',
             text:
-              tag.type === 'code'
-                ? 'Designer'
-                : tag.type === 'design'
-                ? 'Student'
-                : tag.type === ''
-                ? 'Developer'
-                : '',
+              tag.type === 'code' ? 'Designer' : tag.type === 'design' ? 'Student' : tag.type === '' ? 'Developer' : '',
           })
         }
       >

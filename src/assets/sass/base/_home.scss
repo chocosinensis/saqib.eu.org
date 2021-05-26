@@ -96,8 +96,7 @@
     overflow: hidden;
     z-index: 3;
     box-shadow: 0 0 5px rgba($color: $primary, $alpha: 0.5);
-    backdrop-filter: blur(15px) brightness(100%)
-      drop-shadow(0 0 5px rgba($color: $primary, $alpha: 0.5));
+    backdrop-filter: blur(15px) brightness(100%) drop-shadow(0 0 5px rgba($color: $primary, $alpha: 0.5));
 
     header {
       display: flex;

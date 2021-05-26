@@ -8,15 +8,9 @@ export default () => (
   <>
     <Home />
     <About />
-    <Quote
-      quote='O Tranquil Soul! Return to your Lord, well pleased, well pleasing.'
-      r='Al-Fajr 89 : 27-28'
-    />
+    <Quote quote='O Tranquil Soul! Return to your Lord, well pleased, well pleasing.' r='Al-Fajr 89 : 27-28' />
     <Explore />
-    <Quote
-      quote='Fear Allah, Wherever you are.'
-      r='- Prophet Muhammad (PBUH)'
-    />
+    <Quote quote='Fear Allah, Wherever you are.' r='- Prophet Muhammad (PBUH)' />
     <Contact />
   </>
 )

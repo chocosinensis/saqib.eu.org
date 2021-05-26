@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-const Cursor = () => {
+export const Cursor = () => {
   const [top, setTop] = useState(-40)
   const [left, setLeft] = useState(-40)
   const [opacity, setOpacity] = useState(0)
@@ -19,8 +19,7 @@ const Cursor = () => {
     setTimer(setTimeout(() => setOpacity(0), 1200))
 
     if (clientX && clientY) return set(clientX, clientY)
-    else if (targetTouches)
-      return set(targetTouches[0].clientX, targetTouches[0].clientY)
+    else if (targetTouches) return set(targetTouches[0].clientX, targetTouches[0].clientY)
   }
   const expand = () => {
     setClicked(true)
@@ -36,10 +35,7 @@ const Cursor = () => {
   useEffect(() => history.listen(() => scrollTo(0, 0)), [])
 
   return (
-    <div
-      style={{ top, left, opacity }}
-      className={`cursor ${clicked ? 'expand' : ''}`}
-    >
+    <div style={{ top, left, opacity }} className={`cursor ${clicked ? 'expand' : ''}`}>
       <div></div>
     </div>
   )

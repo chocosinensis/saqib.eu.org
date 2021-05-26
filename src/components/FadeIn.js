@@ -1,26 +1,16 @@
 import { motion } from 'framer-motion'
 
-const FadeIn = ({ el, className, duration, delay, __html, children }) => {
+export const FadeIn = ({ el, className, duration, delay, __html, children }) => {
   const El = motion[el]
 
-  return __html ? (
-    <El
-      className={className}
-      dangerouslySetInnerHTML={{ __html }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ ease: 'easeInOut', duration, delay }}
-    />
-  ) : (
-    <El
-      className={className}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ ease: 'easeInOut', duration, delay }}
-    >
-      {children}
-    </El>
-  )
+  const props = {
+    className,
+    initial: { opacity: 0 },
+    animate: { opacity: 0 },
+    transition: { ease: 'easeInOut', duration, delay },
+  }
+
+  return __html ? <El dangerouslySetInnerHTML={{ __html }} {...props} /> : <El {...props}>{children}</El>
 }
 
 FadeIn.defaultProps = {

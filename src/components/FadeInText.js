@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const FadeInText = ({ code, className, onIter, children }) => {
+export const FadeInText = ({ code, className, onIter, children }) => {
   const [iter, setIter] = useState(0)
 
   const onAnimationIteration = () => {
@@ -8,21 +8,9 @@ const FadeInText = ({ code, className, onIter, children }) => {
     if (iter == 1) onIter()
   }
 
-  return code ? (
-    <code
-      className={`fadein ${className}`}
-      onAnimationIteration={onAnimationIteration}
-    >
-      {children}
-    </code>
-  ) : (
-    <span
-      className={`fadein ${className}`}
-      onAnimationIteration={onAnimationIteration}
-    >
-      {children}
-    </span>
-  )
+  const props = { className: `fadein ${className}`, onAnimationIteration }
+
+  return code ? <code {...props}>{children}</code> : <span {...props}>{children}</span>
 }
 
 FadeInText.defaultProps = {

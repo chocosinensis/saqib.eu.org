@@ -1,6 +1,14 @@
 import { Link } from 'react-router-dom'
 
-const Footer = () => (
+const links = [
+  ['https://github.com/choclacode/saqib.ml', 'github'],
+  ['https://twitter.com/choclacode', 'twitter'],
+  ['https://youtube.com/channel/UCuxNNDSPkN4MTbyubs9OQfQ', 'youtube'],
+  ['https://instagram.com/choclacode', 'instagram'],
+  ['https://facebook.com/choclacode', 'facebook'],
+]
+
+export const Footer = () => (
   <footer>
     <div className='copyright'>
       <span className='design'>
@@ -21,13 +29,5 @@ const Footer = () => (
     </div>
   </footer>
 )
-
-const links = [
-  ['https://github.com/choclacode/saqib.ml', 'github'],
-  ['https://twitter.com/choclacode', 'twitter'],
-  ['https://youtube.com/channel/UCuxNNDSPkN4MTbyubs9OQfQ', 'youtube'],
-  ['https://instagram.com/choclacode', 'instagram'],
-  ['https://facebook.com/choclacode', 'facebook'],
-]
 
 export default Footer

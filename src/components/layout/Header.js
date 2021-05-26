@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Links } from './'
 import { useScroll } from '../../hooks'
 
-const Header = () => {
+export const Header = () => {
   const [aside, setAside] = useState(false)
   const [top] = useScroll(0, -70)
 

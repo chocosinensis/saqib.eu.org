@@ -6,8 +6,8 @@ const About = () => (
     <div className='text'>
       <h1>About Me</h1>
       <p>
-        I am a IXth graded student, who lives in Bangladesh. <br />I love to
-        code very much, especially creating web apps and servers. {''}
+        I am a IXth graded student, who lives in Bangladesh. <br />I love to code very much, especially creating web
+        apps and servers.
       </p>
     </div>
     <div className='img-cont'>

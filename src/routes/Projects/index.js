@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import { Card, FadeIn, Search } from '../../components'
 import { useFetch, useTitle } from '../../hooks'
 
 const Projects = () => {
-  const [search, setSearch] = useState('')
+  const query = new URLSearchParams(useLocation().search)
+  const [search, setSearch] = useState(query.get('q') ?? '')
   const [projects] = useFetch('projects')
 
   useTitle('Projects')
@@ -12,19 +14,14 @@ const Projects = () => {
   return (
     <section className='projects'>
       <FadeIn el='h2'>Projects</FadeIn>
-      <Search set={setSearch} />
+      <Search value={search} set={setSearch} />
       <ul>
         {projects &&
           projects
             .filter((project) => Search.match(project, search))
             .map(({ title, name, author }, i) => (
               <li key={i}>
-                <Card
-                  href={`/projects/${name}`}
-                  title={title}
-                  author={author[1]}
-                  i={i}
-                />
+                <Card href={`/projects/${name}`} title={title} author={author[1]} i={i} />
               </li>
             ))}
       </ul>

@@ -13,28 +13,12 @@ const Plant = () => (
         colorInterpolationFilters='sRGB'
       >
         <feFlood floodOpacity='0' result='BackgroundImageFix' />
-        <feColorMatrix
-          in='SourceAlpha'
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
-        />
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' />
         <feOffset />
         <feGaussianBlur stdDeviation='12.5' />
-        <feColorMatrix
-          type='matrix'
-          values='0 0 0 0 0.337255 0 0 0 0 0.964706 0 0 0 0 0.890196 0 0 0 0.5 0'
-        />
-        <feBlend
-          mode='normal'
-          in2='BackgroundImageFix'
-          result='effect1_dropShadow'
-        />
-        <feBlend
-          mode='normal'
-          in='SourceGraphic'
-          in2='effect1_dropShadow'
-          result='shape'
-        />
+        <feColorMatrix type='matrix' values='0 0 0 0 0.337255 0 0 0 0 0.964706 0 0 0 0 0.890196 0 0 0 0.5 0' />
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow' />
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow' result='shape' />
       </filter>
     </defs>
     <g filter='url(#filter0_d)'>

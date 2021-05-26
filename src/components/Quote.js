@@ -1,4 +1,4 @@
-const Quote = ({ quote, r }) => (
+export const Quote = ({ quote, r }) => (
   <section className='quote'>
     <div className='cursor'>
       <div></div>
