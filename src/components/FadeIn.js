@@ -6,7 +6,7 @@ export const FadeIn = ({ el, className, duration, delay, __html, children }) => 
   const props = {
     className,
     initial: { opacity: 0 },
-    animate: { opacity: 0 },
+    animate: { opacity: 1 },
     transition: { ease: 'easeInOut', duration, delay },
   }
 
