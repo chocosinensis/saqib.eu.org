@@ -185,7 +185,7 @@
       "href": "https://alhasan.herokuapp.com",
       "name": "sakib",
       "author": ["", "Sakib", "Al Hasan"],
-      "technologies": ["HTML"]
+      "technologies": ["Node.js", "Express"]
     },
     {
       "title": "Task Master",
