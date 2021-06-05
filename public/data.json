@@ -163,7 +163,7 @@
       "href": "https://saqib.ml",
       "name": "saqib.ml",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "technologies": ["React", "Framer Motion"]
+      "technologies": ["React", "Framer Motion", "Sass"]
     },
     {
       "title": "Choclacode",
@@ -171,35 +171,35 @@
       "backupHref": "https://choclacode.herokuapp.com",
       "name": "choclacode",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "technologies": ["Node.js", "Express"]
+      "technologies": ["Node.js", "Express", "MongoDB", "Sass", "Pug", "Socket.io"]
     },
     {
       "title": "MTPS",
       "href": "https://money-transcation-and-payment-system.retrysamurai.repl.co/",
       "name": "mtps",
       "author": ["", "Fateen", "Yusuf Mostafa"],
-      "technologies": ["Node.js", "Express"]
+      "technologies": ["Node.js", "Express", "MongoDB", "EJS"]
     },
     {
       "title": "Sakib",
       "href": "https://alhasan.herokuapp.com",
       "name": "sakib",
       "author": ["", "Sakib", "Al Hasan"],
-      "technologies": ["Node.js", "Express"]
+      "technologies": ["Node.js", "Express", "EJS"]
     },
     {
       "title": "Task Master",
       "href": "https://flask-crud-app-tutorial-fateen.herokuapp.com",
       "name": "task-master",
       "author": ["", "Fateen", "Yusuf Mostafa"],
-      "technologies": ["Python", "Flask"]
+      "technologies": ["Python", "Flask", "SQLite"]
     },
     {
       "title": "Munif",
       "href": "http://munif.ml",
       "name": "munif.ml",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "technologies": ["React", "Framer Motion"]
+      "technologies": ["React", "Framer Motion", "Sass"]
     },
     {
       "title": "Saadat",
@@ -214,7 +214,7 @@
       "backupHref": "https://homenet-saqib.herokuapp.com",
       "name": "homenet",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "technologies": ["Node.js", "Express"]
+      "technologies": ["Node.js", "Express", "MongoDB", "EJS", "Socket.io"]
     }
   ]
 }
