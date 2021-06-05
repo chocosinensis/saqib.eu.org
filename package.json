@@ -1,6 +1,6 @@
 {
   "name": "saqib.ml",
-  "version": "2.9.3",
+  "version": "2.9.4",
   "private": true,
   "dependencies": {
     "framer-motion": "^3.2.2-rc.1",
@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:sass": "npx sass src/assets/sass/main.scss src/assets/styles/main.css --style=compressed --no-source-map",
+    "build:sass": "npx sass src/assets/sass/main.sass src/assets/styles/main.css --style=compressed --no-source-map",
     "watch:sass": "npm run build:sass -- -w"
   },
   "browserslist": {

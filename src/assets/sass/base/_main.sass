@@ -1,0 +1,28 @@
+@import 'nav'
+
+@import 'home'
+@import 'articles'
+@import 'projects'
+
+.notfound
+  min-height: 85vh
+  display: flex
+  align-items: center
+  justify-content: center
+  font-weight: bold
+  font-size: 2em
+
+  .status
+    color: $text-l
+    padding: 5px 10px
+    letter-spacing: 0.1em
+    border-right: 3px solid rgba($color: $primary-l2, $alpha: 0.4)
+
+  .detail
+    color: rgba($color: $primary-d1, $alpha: 0.4)
+    font-weight: normal
+    text-transform: uppercase
+    letter-spacing: 0.2em
+    margin-left: 10px
+
+@import 'footer'

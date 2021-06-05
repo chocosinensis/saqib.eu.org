@@ -1,0 +1,71 @@
+///////////////
+// Variables
+///////////////
+
+// Colors
+$primary-l2: #5cfce3
+$primary-l1: #4abfd4
+$primary: #5eb0eb
+$primary-d1: #4a76d4
+$primary-d2: #565ff6
+
+// Texts
+$text-l: #fff
+$text: #aaa
+$text-d: #000
+
+// Fonts
+$font: 'Poppins', 'Siyam Rupali', 'Janna LT', sans-serif
+$font-design: 'Lobster', sans-serif
+$font-code: 'Fira Code', monospace
+$font-url: 'https://choclacode.herokuapp.com/public/assets/fonts/'
+
+// Background
+$bg: rgba($color: $text-d, $alpha: 0.95)
+
+// Breakpoints
+$breakpoint-sm: 576px
+$breakpoint-md: 768px
+$breakpoint-lg: 992px
+$breakpoint-xl: 1200px
+
+///////////////
+// Mixins
+///////////////
+@mixin media($max-width)
+  @media screen and (max-width: $max-width)
+    &
+      @content
+
+///////////////
+// @keyframes...
+///////////////
+@keyframes fadein
+  from
+    opacity: 0
+
+  to
+    opacity: 1
+
+@keyframes cursorexpand
+  0%
+    transform: translate(-50%, -50%) scale(1)
+    opacity: 1
+
+  50%
+    transform: translate(-50%, -50%) scale(2)
+
+  100%
+    transform: translate(-50%, -50%) scale(1)
+    opacity: 0
+
+///////////////
+// @font-face...
+///////////////
+@font-face
+  font-family: 'Siyam Rupali'
+  src: url('#{$font-url}Siyamrupali.ttf')
+
+@font-face
+  font-family: 'Janna LT'
+  src: url('#{$font-url}JannaLT.ttf')
