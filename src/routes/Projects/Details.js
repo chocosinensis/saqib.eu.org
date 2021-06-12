@@ -10,6 +10,7 @@ const Details = () => {
     title: '',
     href: '',
     author: [],
+    repository: null,
     technologies: [],
   })
 
@@ -28,6 +29,18 @@ const Details = () => {
       </div>
       <FadeIn className='preview' delay={0.4}>
         <iframe src={project.backupHref ?? project.href} style={{ pointerEvents }} />
+      </FadeIn>
+      <FadeIn el='ul' delay={0.6}>
+        <li>Repository: </li>
+        <li className={project.repository && 'float'}>
+          {project.repository ? (
+            <a href={project.repository} className='hover-link' target='_blank'>
+              {project.repository}
+            </a>
+          ) : (
+            <span>No public repository link available</span>
+          )}
+        </li>
       </FadeIn>
       <FadeIn el='ul' delay={0.6}>
         {project.technologies.map((t, i) => (
