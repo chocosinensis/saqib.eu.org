@@ -231,7 +231,7 @@
       "name": "saqib_v1",
       "author": ["Muhammad Nazmus", "Saqib"],
       "repository": "https://github.com/choclacode/saqib_v1",
-      "technologies": ["HTML"]
+      "technologies": ["Node.js", "Express", "Pug", "Sass"]
     }
   ]
 }
