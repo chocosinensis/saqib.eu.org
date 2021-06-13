@@ -1,7 +1,30 @@
 import { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 
-export const useFetch = (resource) => {
+export const useFetch = (route, initial = null) => {
+  const [data, setData] = useState(initial)
+
+  useEffect(() => {
+    const abC = new AbortController()
+
+    ;(async () => {
+      try {
+        const res = await fetch(`${process.env.REACT_APP_API}/${route}`, { signal: abC.signal })
+        const data = await res.json()
+
+        setData(data)
+      } catch (err) {
+        if (err.name != 'AbortError') setData(null)
+      }
+    })()
+
+    return () => abC.abort()
+  }, [data])
+
+  return [data]
+}
+
+export const useLocalFetch = (resource) => {
   const [data, setData] = useState(null)
 
   useEffect(() => {
@@ -26,7 +49,7 @@ export const useFetch = (resource) => {
 
 export const useResource = (resource, param, redirect, initial) => {
   const [data, setData] = useState(initial)
-  const [res] = useFetch(resource)
+  const [res] = useLocalFetch(resource)
   const { [param]: paramValue } = useParams()
   const history = useHistory()
 

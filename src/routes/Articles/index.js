@@ -3,12 +3,12 @@ import { useLocation } from 'react-router-dom'
 import marked from 'marked'
 
 import { Card, FadeIn, Search } from '../../components'
-import { useFetch, useTitle } from '../../hooks'
+import { useLocalFetch, useTitle } from '../../hooks'
 
 const Articles = () => {
   const query = new URLSearchParams(useLocation().search)
   const [search, setSearch] = useState(query.get('q') ?? '')
-  const [articles] = useFetch('articles')
+  const [articles] = useLocalFetch('articles')
 
   useTitle('Articles')
 

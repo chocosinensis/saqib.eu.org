@@ -2,12 +2,12 @@ import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import { Card, FadeIn, Search } from '../../components'
-import { useFetch, useTitle } from '../../hooks'
+import { useLocalFetch, useTitle } from '../../hooks'
 
 const Projects = () => {
   const query = new URLSearchParams(useLocation().search)
   const [search, setSearch] = useState(query.get('q') ?? '')
-  const [projects] = useFetch('projects')
+  const [projects] = useLocalFetch('projects')
 
   useTitle('Projects')
 

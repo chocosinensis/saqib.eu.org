@@ -1,6 +1,6 @@
 import { Switch, Route } from 'react-router-dom'
 
-import { Home, Articles, ArticleDetails, Projects, ProjectDetails, Quote, NotFound } from './'
+import { Home, Articles, ArticleDetails, Projects, ProjectDetails, Quran, Surah, Quote, NotFound } from './'
 
 const Routes = () => (
   <Switch>
@@ -11,6 +11,9 @@ const Routes = () => (
 
     <Route exact path='/projects' component={Projects} />
     <Route path='/projects/:name' component={ProjectDetails} />
+
+    <Route exact path='/quran' component={Quran} />
+    <Route path='/quran/:surah' component={Surah} />
 
     <Route path='/quote' component={Quote} />
 

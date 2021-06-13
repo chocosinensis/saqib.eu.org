@@ -1,0 +1,100 @@
+.quran
+  padding: 30px 10%
+
+  .surahs
+    display: flex
+    justify-content: space-between
+
+    .row
+      width: 30%
+      padding: 10px
+
+      .card
+        h3.ara
+          text-align: right
+
+        .author
+          padding: 10px 15px
+          left: 0
+          right: auto
+          border-radius: 0 36px 0 36px
+          font-size: 0.75rem
+
+          &.num
+            top: 0
+            right: 0
+            left: auto
+            bottom: auto
+
+    @include media($breakpoint-lg)
+      font-size: 0.75rem
+
+      h3,
+      p
+        font-size: 1rem
+
+    @include media($breakpoint-md)
+      flex-direction: column
+      justify-content: flex-start
+
+      .row
+        width: 100%
+        margin: 0
+        padding: 0
+
+        .card:last-child
+          margin-bottom: 0
+
+.surah
+  padding: 30px 10%
+
+  .ayahs
+    .ayah
+      background-color: $bg
+      padding: 20px 30px 30px
+      margin: 20px auto
+      border-radius: 36px
+      box-shadow: 0 0 12px $bg
+
+      &#bismillah
+        text-align: center
+        font-size: 1.25rem
+        color: $text-l
+
+      .num
+        font-size: 0.8rem
+        opacity: 0.5
+        margin: 20px 0 15px
+
+        &:first-child
+          margin-top: 10px
+
+      .ara
+        color: $text-l
+        font-size: 1.25rem
+        text-align: right
+
+  ul.nav
+    margin: 40px 0 20px
+    display: flex
+    justify-content: space-between
+
+    .float
+      padding: 10px 15px
+
+      &:first-child
+        border-radius: 0 36px 36px 0
+
+      &:last-child
+        border-radius: 36px 0 0 36px
+
+    @include media($breakpoint-sm)
+      padding: 5px 10px
+      font-size: 0.75rem
+
+.quran,
+.surah
+  .title
+    color: $text-l
+    text-align: center
+    text-shadow: 0 0 1px $primary-l1

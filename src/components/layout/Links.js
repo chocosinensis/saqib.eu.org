@@ -4,6 +4,7 @@ const links = [
   ['/', 'Home'],
   ['/articles', 'Articles'],
   ['/projects', 'Projects'],
+  ['/quran', 'Quran'],
   ['/quote?q=Edit+the+URL+directly&r=?q=Your+Quote%26r=Your+Reference', 'Quote'],
 ]
 
