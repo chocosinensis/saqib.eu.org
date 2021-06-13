@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useHistory, useParams } from 'react-router-dom'
+import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
 
 import { FadeIn } from '../../components'
 import { useFetch, useTitle } from '../../hooks'
@@ -9,6 +9,8 @@ const Surah = () => {
   const { surah } = useParams()
   const [data] = useFetch(`quran/${surah}`)
   const router = useHistory()
+  const q = new URLSearchParams(useLocation().search)
+  const lang = q.get('lang') ?? 'ara,eng,ban'
 
   useEffect(() => {
     if (!data) return
@@ -32,12 +34,20 @@ const Surah = () => {
         )}
         {ayahs.surah.map(({ num, ara, eng, ban }) => (
           <div key={num} className='ayah'>
-            <p className='num'>{num}</p>
-            <p className='ara'>{ara}</p>
-            <p className='num'>English - Saheeh International</p>
-            <p className='eng'>{eng}</p>
-            <p className='num'>Bengali - Mohiuddin Khan</p>
-            <p className='ban'>{ban}</p>
+            <p className='num float design'>{num}</p>
+            {lang.includes('ara') && <p className='ara'>{ara}</p>}
+            {lang.includes('eng') && (
+              <>
+                <p className='num'>English - Saheeh International</p>
+                <p className='eng'>{eng}</p>
+              </>
+            )}
+            {lang.includes('ban') && (
+              <>
+                <p className='num'>Bengali - Mohiuddin Khan</p>
+                <p className='ban'>{ban}</p>
+              </>
+            )}
           </div>
         ))}
       </FadeIn>
