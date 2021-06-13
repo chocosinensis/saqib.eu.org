@@ -12,7 +12,7 @@
 # production
 /build
 /.firebase
-/src/assets/styles/**
+/src/assets/styles
 
 # misc
 .DS_Store

@@ -14,7 +14,7 @@ const Surah = () => {
 
   useEffect(() => {
     if (!data) return
-    if (data.length == 3 && (!data.info || !data.surah)) router.push('/quran')
+    if (data.length == 3 && (!data.info || !data.surah)) return router.push('/quran')
     setAyahs(data)
   }, [data])
   useTitle(ayahs.info.eng, ayahs.info.ara)
@@ -34,7 +34,9 @@ const Surah = () => {
         )}
         {ayahs.surah.map(({ num, ara, eng, ban }) => (
           <div key={num} className='ayah'>
-            <p className='num float design'>{num}</p>
+            <p className='num float design'>
+              {ayahs.info.num} : {num}
+            </p>
             {lang.includes('ara') && <p className='ara'>{ara}</p>}
             {lang.includes('eng') && (
               <>
