@@ -21,10 +21,16 @@
           font-size: 0.75rem
 
           &.num
+            opacity: 0.5
             top: 0
             right: 0
             left: auto
             bottom: auto
+            transition: opacity 0.2s ease
+
+        &:hover
+          .author.num
+            opacity: 1
 
     @include media($breakpoint-lg)
       font-size: 0.75rem
@@ -62,6 +68,7 @@
         text-align: center
         font-size: 1.25rem
         color: $text-l
+        transition: text-shadow 0.2s ease
 
       .num
         font-size: 0.8rem
@@ -76,11 +83,21 @@
           top: 0
           left: 0
           border-radius: 36px 0 36px 0
+          transition: opacity 0.2s ease
 
       .ara
         color: $text-l
         font-size: 1.25rem
         text-align: right
+        transition: text-shadow 0.2s ease
+
+      &:hover
+        .num:first-child
+          opacity: 0.1
+
+        &#bismillah,
+        .ara
+          text-shadow: 0 0 0.5px $primary-l2
 
   ul.nav
     margin: 40px 0 20px
