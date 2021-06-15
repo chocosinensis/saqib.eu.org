@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 
 const links = [
-  ['https://github.com/choclacode/saqib.ml', 'github'],
-  ['https://twitter.com/choclacode', 'twitter'],
+  ['https://github.com/chocosinensis/saqib.ml', 'github'],
+  ['https://twitter.com/ChocoSinensis', 'twitter'],
   ['https://youtube.com/channel/UCuxNNDSPkN4MTbyubs9OQfQ', 'youtube'],
-  ['https://instagram.com/choclacode', 'instagram'],
-  ['https://facebook.com/choclacode', 'facebook'],
+  ['https://instagram.com/chocosinensis', 'instagram'],
+  ['https://facebook.com/chocosinensis', 'facebook'],
 ]
 
 export const Footer = () => (

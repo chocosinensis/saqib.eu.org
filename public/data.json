@@ -163,7 +163,7 @@
       "href": "https://saqib.ml",
       "name": "saqib.ml",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "repository": "https://github.com/choclacode/saqib.ml",
+      "repository": "https://github.com/chocosinensis/saqib.ml",
       "technologies": ["React", "Framer Motion", "Sass"]
     },
     {
@@ -172,7 +172,7 @@
       "backupHref": "https://choclacode.herokuapp.com",
       "name": "choclacode",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "repository": "https://github.com/choclacode/choclacode",
+      "repository": "https://github.com/chocosinensis/choclacode",
       "technologies": ["Node.js", "Express", "MongoDB", "Sass", "Pug", "Socket.io"]
     },
     {
@@ -197,7 +197,7 @@
       "backupHref": "https://homenet-saqib.herokuapp.com",
       "name": "homenet",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "repository": "https://github.com/choclacode/homenet",
+      "repository": "https://github.com/chocosinensis/homenet",
       "technologies": ["Node.js", "Express", "MongoDB", "Pug", "Socket.io"]
     },
     {
@@ -213,7 +213,7 @@
       "href": "http://munif.ml",
       "name": "munif.ml",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "repository": "https://github.com/choclacode/munif.ml",
+      "repository": "https://github.com/chocosinensis/munif.ml",
       "technologies": ["React", "Framer Motion", "Sass"]
     },
     {
@@ -221,7 +221,7 @@
       "href": "http://saadat.eu.org",
       "name": "saadat.eu.org",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "repository": "https://github.com/choclacode/saadat",
+      "repository": "https://github.com/chocosinensis/saadat",
       "technologies": ["HTML"]
     },
     {
@@ -230,7 +230,7 @@
       "backupHref": "https://saqibmlv1.herokuapp.com",
       "name": "saqib_v1",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "repository": "https://github.com/choclacode/saqib_v1",
+      "repository": "https://github.com/chocosinensis/saqib_v1",
       "technologies": ["Node.js", "Express", "Pug", "Sass"]
     }
   ]
