@@ -14,7 +14,9 @@ const Quran = () => {
   return (
     <section className='quran'>
       <FadeIn el='h2' delay={0.2} className='title'>
-        The Noble Quran <br /> القرآن الكريم
+        The Noble Quran
+        <br />
+        القرآن الكريم
       </FadeIn>
       <Search value={search} set={setSearch} delay={0.4} />
       <section className='surahs'>

@@ -7,10 +7,10 @@ import { useFetch, useTitle } from '../../hooks'
 const Surah = () => {
   const [ayahs, setAyahs] = useState({ info: { num: '', eng: '', ara: '', mng: '' }, surah: [] })
   const { surah } = useParams()
-  const [data] = useFetch(`quran/${surah}`)
   const router = useHistory()
   const q = new URLSearchParams(useLocation().search)
   const lang = q.get('lang') ?? 'ara,eng,ban'
+  const [data] = useFetch(`quran/${surah}?lang=${lang}`)
 
   useEffect(() => {
     if (!data) return
