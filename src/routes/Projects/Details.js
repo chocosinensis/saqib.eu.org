@@ -10,12 +10,14 @@ const Details = () => {
     title: '',
     href: '',
     author: [],
+    contributors: [],
     repository: null,
     technologies: [],
   })
+  const Author = ({ author, type = 'author' }) => <p className={`${type} design float`}>{author.join(' ')}</p>
 
   useEffect(() => setPointerEvents('none'), [pointerEvents])
-  useTitle(project.title, project.author[1])
+  useTitle(project.title, project.author?.[1] ?? project.contributors?.[0]?.[1])
 
   return (
     <section className='project'>
@@ -50,7 +52,15 @@ const Details = () => {
         ))}
       </FadeIn>
       <FadeIn className='flex' delay={0.8}>
-        <p className='author design float'>{project.author.join(' ')}</p>
+        {project.author ? (
+          <Author author={project.author} />
+        ) : (
+          <div class='contributors'>
+            {project.contributors.map((author) => (
+              <Author author={author} />
+            ))}
+          </div>
+        )}
         <Link to='/projects' className='float shrunk hover-link'>
           Back
         </Link>

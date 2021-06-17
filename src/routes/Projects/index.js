@@ -19,9 +19,9 @@ const Projects = () => {
         {projects &&
           projects
             .filter((project) => Search.match(project, search))
-            .map(({ title, name, author }, i) => (
+            .map(({ title, name, author, contributors: c }, i) => (
               <li key={i}>
-                <Card href={`/projects/${name}`} title={title} author={author[1]} i={i} />
+                <Card href={`/projects/${name}`} title={title} author={author?.[1] ?? c[0][1]} i={i} />
               </li>
             ))}
       </ul>
