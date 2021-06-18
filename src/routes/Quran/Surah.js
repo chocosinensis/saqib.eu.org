@@ -54,7 +54,7 @@ const Surah = () => {
         ))}
       </FadeIn>
       <FadeIn el='ul' className='nav' delay={0.8}>
-        {links(surah).map(([href, text]) => (
+        {links(surah, lang).map(([href, text]) => (
           <Link key={text} to={href} className='float hover-link'>
             {text}
           </Link>
@@ -64,12 +64,13 @@ const Surah = () => {
   )
 }
 
-const links = (surah) => {
+const links = (surah, lang) => {
   const links = []
+  const l = lang !== 'ara,eng,ban' ? `?lang=${lang}` : ''
 
-  if (surah != '1') links.push([`/quran/${Number(surah) - 1}`, 'Previous'])
+  if (surah != '1') links.push([`/quran/${Number(surah) - 1}${l}`, 'Previous'])
   links.push(['/quran', 'Back'])
-  if (surah != '114') links.push([`/quran/${Number(surah) + 1}`, 'Next'])
+  if (surah != '114') links.push([`/quran/${Number(surah) + 1}${l}`, 'Next'])
 
   return links
 }
