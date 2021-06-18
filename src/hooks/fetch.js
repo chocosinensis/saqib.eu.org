@@ -19,7 +19,7 @@ export const useFetch = (route, initial = null) => {
     })()
 
     return () => abC.abort()
-  }, [data])
+  }, [route])
 
   return [data]
 }
@@ -42,7 +42,7 @@ export const useLocalFetch = (resource) => {
     })()
 
     return () => abC.abort()
-  }, [data])
+  }, [resource])
 
   return [data]
 }

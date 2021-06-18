@@ -8,4 +8,4 @@ prod:
 		firebase deploy
 
 push:
-	git push origin
+	git push origin main
