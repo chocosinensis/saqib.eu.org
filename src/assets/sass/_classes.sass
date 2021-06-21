@@ -1,14 +1,14 @@
 .design
   &,
   & *
-    font-family: $font-design, $font-fallback
+    font-family: $font-design
 
 code,
 pre,
 .code
   &,
   & *
-    font-family: $font-code, $font-fallback
+    font-family: $font-code
 
 .glow
   color: $text-l
@@ -87,6 +87,10 @@ pre,
       width: 125px
 
   .content
+    min-width: $breakpoint-md - 10px
+    display: flex
+    align-items: center
+    justify-content: center
     position: relative
     padding-bottom: 40px
 
@@ -100,6 +104,13 @@ pre,
       position: absolute
       right: 2px
       bottom: 2px
+      white-space: pre-line
+
+    @include media($breakpoint-md)
+      min-width: $breakpoint-sm - 10px
+
+    @include media($breakpoint-sm)
+      min-width: $breakpoint-sm / 2
 
 .card
   background-color: $bg

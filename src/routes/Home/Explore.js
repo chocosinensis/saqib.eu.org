@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Card, Search } from '../../components'
 
 const Q = ({ text }) =>
   text.split(/\n+/).map((t) => (
-    <>
+    <Fragment key={t}>
       <q className='design glow'>{t}</q>
       <br />
-    </>
+    </Fragment>
   ))
 
 const QuoteLink = () => {

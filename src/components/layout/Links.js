@@ -2,10 +2,9 @@ import { Link } from 'react-router-dom'
 
 const links = [
   ['/', 'Home'],
+  ['/quran', 'Quran'],
   ['/articles', 'Articles'],
   ['/projects', 'Projects'],
-  ['/quran', 'Quran'],
-  ['/quote?q=Edit+the+URL+directly&r=?q=Your+Quote%26r=Your+Reference', 'Quote'],
 ]
 
 export const Links = ({ aside, setAside }) => (
