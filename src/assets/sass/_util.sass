@@ -15,7 +15,8 @@ $text: #aaa
 $text-d: #000
 
 // $fonts...
-$font: 'Poppins', 'Siyam Rupali', 'Janna LT', sans-serif
+$font-fallback: 'Siyam Rupali', 'Janna LT'
+$font: 'Poppins', $font-fallback, sans-serif
 $font-design: 'Lobster', sans-serif
 $font-code: 'Fira Code', monospace
 $font-url: 'https://choclacode.herokuapp.com/public/assets/fonts/'
