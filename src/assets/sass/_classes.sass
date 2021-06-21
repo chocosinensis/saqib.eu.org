@@ -3,6 +3,12 @@
   & *
     font-family: $font-design
 
+.style
+  &,
+  & *
+    font-family: $font-style
+    font-size: 1.5em
+
 code,
 pre,
 .code
@@ -110,7 +116,7 @@ pre,
       min-width: $breakpoint-sm - 10px
 
     @include media($breakpoint-sm)
-      min-width: $breakpoint-sm / 2
+      min-width: 90vw
 
 .card
   background-color: $bg

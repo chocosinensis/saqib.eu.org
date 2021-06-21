@@ -12,7 +12,7 @@ export const Header = () => {
     <>
       <header style={{ top }}>
         <div className='logo'>
-          <Link to='/' className='design'>
+          <Link to='/' className='style'>
             Saqib
           </Link>
         </div>
