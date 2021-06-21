@@ -12,7 +12,7 @@ export const Footer = () => (
   <footer>
     <div className='copyright'>
       <span className='design'>
-        &copy; 2021{' '}
+        &copy; 2021 {''}
         <Link className='hover-link' to='/'>
           Saqib
         </Link>
@@ -22,7 +22,7 @@ export const Footer = () => (
       {links.map(([h, n]) => (
         <div key={n}>
           <a href={h} target='_blank'>
-            <i className={`fab fa-${n}`}></i>
+            <i className={`fab fa-${n}`} />
           </a>
         </div>
       ))}

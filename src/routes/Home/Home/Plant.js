@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 
-const Plant = () => (
-  <svg viewBox='0 0 1470 244' fill='none' xmlns='http://www.w3.org/2000/svg'>
+const Plant = ({ opacity }) => (
+  <svg viewBox='0 0 1470 244' fill='none' xmlns='http://www.w3.org/2000/svg' style={{ opacity }}>
     <defs>
       <filter
         id='filter0_d'

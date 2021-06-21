@@ -10,6 +10,10 @@ pre,
   & *
     font-family: $font-code
 
+.glow
+  color: $text-l
+  text-shadow: 0 0 4px rgba($color: $text-l, $alpha: 0.2)
+
 .cursor
   height: 3vh
   width: 3vh
@@ -103,25 +107,26 @@ pre,
   position: relative
   overflow: hidden
   border-radius: 36px
-  box-shadow: 0 0 8px $bg
+  box-shadow: 0 0 12px $text-d
 
-  a
+  a,
+  & > div
     display: block
     padding: 30px 30px 40px
 
-    h3
-      color: $text-l
-      text-shadow: 0 0 8px rgba($color: $primary-l2, $alpha: 0.5)
+  h3
+    color: $text-l
+    text-shadow: 0 0 8px rgba($color: $primary-l2, $alpha: 0.5)
 
-    .author
-      padding: 15px 20px
-      position: absolute
-      right: 0
-      bottom: 0
-      border-radius: 36px 0 36px 0
+  .author
+    padding: 15px 20px
+    position: absolute
+    right: 0
+    bottom: 0
+    border-radius: 36px 0 36px 0
 
-    .snippet
-      margin: 10px 0
+  .snippet
+    margin: 10px 0
 
 .float
   display: inline-block

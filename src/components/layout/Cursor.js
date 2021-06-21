@@ -13,30 +13,37 @@ export const Cursor = () => {
     setTop(y)
     setLeft(x)
   }
-  const move = ({ clientX, clientY, targetTouches }) => {
-    setOpacity(0.5)
-    clearTimeout(timer)
-    setTimer(setTimeout(() => setOpacity(0), 1200))
-
-    if (clientX && clientY) return set(clientX, clientY)
-    else if (targetTouches) return set(targetTouches[0].clientX, targetTouches[0].clientY)
-  }
-  const expand = () => {
-    setClicked(true)
-    setTimeout(() => setClicked(false), 400)
-  }
 
   useEffect(() => {
+    const move = ({ clientX, clientY, targetTouches }) => {
+      setOpacity(0.5)
+      clearTimeout(timer)
+      setTimer(setTimeout(() => setOpacity(0), 1200))
+
+      if (clientX && clientY) return set(clientX, clientY)
+      else if (targetTouches) return set(targetTouches[0].clientX, targetTouches[0].clientY)
+    }
+    const expand = () => {
+      setClicked(true)
+      setTimeout(() => setClicked(false), 400)
+    }
+
     document.addEventListener('mousemove', move)
     document.addEventListener('touchmove', move)
     document.addEventListener('click', expand)
-  }, [])
 
-  useEffect(() => history.listen(() => scrollTo(0, 0)), [])
+    return () => {
+      document.removeEventListener('mousemove', move)
+      document.removeEventListener('touchmove', move)
+      document.removeEventListener('click', expand)
+    }
+  }, [timer])
+
+  useEffect(() => history.listen(() => scrollTo(0, 0)), [history])
 
   return (
     <div style={{ top, left, opacity }} className={`cursor ${clicked ? 'expand' : ''}`}>
-      <div></div>
+      <div />
     </div>
   )
 }

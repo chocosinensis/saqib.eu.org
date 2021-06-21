@@ -18,7 +18,7 @@ export const Header = () => {
         </div>
         <nav>
           <button className='bars' onClick={() => setAside(!aside)}>
-            <i className={`fas fa-${aside ? 'times' : 'bars'}`}></i>
+            <i className={`fas fa-${aside ? 'times' : 'bars'}`} />
           </button>
         </nav>
       </header>

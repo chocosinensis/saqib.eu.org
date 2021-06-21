@@ -13,9 +13,6 @@ export const FadeInText = ({ code, className, onIter, children }) => {
   return code ? <code {...props}>{children}</code> : <span {...props}>{children}</span>
 }
 
-FadeInText.defaultProps = {
-  code: false,
-  className: '',
-}
+FadeInText.defaultProps = { code: false, className: '' }
 
 export default FadeInText

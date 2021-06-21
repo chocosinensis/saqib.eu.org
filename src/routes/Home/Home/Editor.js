@@ -1,55 +1,70 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import { Shadow, FadeInText } from '../../../components'
 import { useTitle } from '../../../hooks'
 
-const Editor = () => {
+const defaultProps = (loaded = true) => ({
+  initial: { opacity: 0 },
+  animate: { opacity: 0.8 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.25, delay: loaded ? 0 : 1, ease: 'easeInOut' },
+})
+
+const Editor = ({ set, isMaximized, loaded }) => {
   const [code, setCode] = useState({
     topic: 'Express',
     Body: Codes.Express,
   })
+
   useTitle('Home')
 
+  const Button = ({ className, setter }) => (
+    <motion.span className={`btn ${className}`} onClick={set(setter)} whileTap={{ scale: 0.9 }} />
+  )
+
   return (
-    <motion.div
-      className='editor'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.8 }}
-      transition={{ duration: 0.5, delay: 1, ease: 'easeInOut' }}
-    >
+    <motion.div className={`editor${isMaximized ? ' maximized' : ''}`} {...defaultProps(loaded)}>
       <header>
         <div className='btns'>
-          <span className='btn red'></span>
-          <span className='btn orange'></span>
-          <span className='btn green'></span>
+          <Button className='red' setter='Close' />
+          <Button className='orange' setter='Minimize' />
+          <Button className='green' setter='Maximize' />
         </div>
         <div className='topic'>
+          {isMaximized ? (
+            <code>Editor</code>
+          ) : (
+            <FadeInText
+              code
+              onIter={() =>
+                setCode({
+                  ...code,
+                  topic: code.topic === 'Express' ? 'Flask' : 'Express',
+                })
+              }
+            >
+              {code.topic}
+            </FadeInText>
+          )}
+        </div>
+      </header>
+      {!isMaximized && <Shadow translate={{ from: '-10vw', to: '100vw' }} duration={0.5} />}
+      <div className='body'>
+        {isMaximized ? (
+          <textarea spellCheck='false' />
+        ) : (
           <FadeInText
-            code
             onIter={() =>
               setCode({
                 ...code,
-                topic: code.topic === 'Express' ? 'Flask' : 'Express',
+                Body: code.Body === Codes.Express ? Codes.Flask : Codes.Express,
               })
             }
           >
-            {code.topic}
+            <code.Body />
           </FadeInText>
-        </div>
-      </header>
-      <Shadow />
-      <div className='body'>
-        <FadeInText
-          onIter={() =>
-            setCode({
-              ...code,
-              Body: code.Body === Codes.Express ? Codes.Flask : Codes.Express,
-            })
-          }
-        >
-          <code.Body />
-        </FadeInText>
+        )}
       </div>
     </motion.div>
   )
@@ -96,4 +111,33 @@ const Codes = {
   ),
 }
 
-export default Editor
+export default ({ is, set: sets }) => {
+  const [loaded, setLoaded] = useState(false)
+
+  /** @param {'Close' | 'Minimize' | 'Maximize'} fn */
+  const set = (fn) => () => {
+    sets[`set${fn}d`]?.((val) => !val)
+  }
+
+  const editorProps = { isMaximized: is.isMaximized, set, loaded }
+
+  useEffect(() => setLoaded(true), [])
+  useEffect(() => {
+    if (is.isMinimized) setTimeout(() => sets.setMinimized(false), 10000)
+  }, [is.isMinimized, sets])
+
+  return (
+    <>
+      <AnimatePresence exitBeforeEnter>
+        {is.isClosed && (
+          <motion.div className='editoricon' {...defaultProps()}>
+            <div onClick={set('Close')}>&gt;_</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
+        {!is.isClosed && !is.isMinimized && <Editor {...editorProps} />}
+      </AnimatePresence>
+    </>
+  )
+}

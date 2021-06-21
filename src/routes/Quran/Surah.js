@@ -16,7 +16,7 @@ const Surah = () => {
     if (!data) return
     if (data.length == 3 && (!data.info || !data.surah)) return router.push('/quran')
     setAyahs(data)
-  }, [data])
+  }, [data, router])
   useTitle(ayahs.info.eng, ayahs.info.ara)
 
   return (

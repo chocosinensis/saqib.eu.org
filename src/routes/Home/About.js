@@ -6,13 +6,13 @@ const About = () => (
     <div className='text'>
       <h1>About Me</h1>
       <p>
-        I am a IXth graded student, who lives in Bangladesh. <br />I love to code very much, especially creating web
-        apps and servers.
+        A IXth Grader, Muslim, and Bangladeshi who is passionate about <br /> mathematics, science, philosophy, religion
+        and programming.
       </p>
     </div>
     <div className='img-cont'>
       <div className='img'>
-        <Shadow />
+        <Shadow translate={{ from: '0vw', to: '100vw' }} duration={1} />
         <img src={Me} alt='Loading Image...' />
       </div>
     </div>

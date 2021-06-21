@@ -13,7 +13,7 @@ export const useScroll = (initial, afterscroll) => {
         setTop(prevScrollPos > currentScrollPos ? initial : afterscroll)
         setPrevScrollPos(currentScrollPos)
       }),
-    [prevScrollPos]
+    [prevScrollPos, initial, afterscroll]
   )
 
   return [top]

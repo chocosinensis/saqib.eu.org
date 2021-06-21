@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
 
-export const Shadow = () => (
+export const Shadow = ({ translate: { from, to }, duration }) => (
   <motion.div
     className='shadow'
-    initial={{ transform: 'translate(-20vw) rotateZ(30deg)' }}
-    animate={{ transform: 'translate(300vw) rotateZ(30deg)' }}
-    transition={{ delay: 3, duration: 3, ease: 'linear', repeat: Infinity, repeatDelay: 3 }}
-  ></motion.div>
+    initial={{ transform: `translate(${from}) rotateZ(30deg)` }}
+    animate={{ transform: `translate(${to}) rotateZ(30deg)` }}
+    transition={{ delay: 3, duration, ease: 'linear', repeat: Infinity, repeatDelay: 3 }}
+  />
 )
+
+Shadow.defaultProps = { translate: { from: '-20vw', to: '300vw' }, duration: 3 }
 
 export default Shadow

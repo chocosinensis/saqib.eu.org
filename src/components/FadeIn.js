@@ -13,12 +13,6 @@ export const FadeIn = ({ el, className, duration, delay, __html, children }) => 
   return __html ? <El dangerouslySetInnerHTML={{ __html }} {...props} /> : <El {...props}>{children}</El>
 }
 
-FadeIn.defaultProps = {
-  el: 'div',
-  className: '',
-  duration: 0.2,
-  delay: 0,
-  __html: false,
-}
+FadeIn.defaultProps = { el: 'div', className: '', duration: 0.2, delay: 0, __html: false }
 
 export default FadeIn

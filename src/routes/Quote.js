@@ -7,7 +7,7 @@ export default () => {
   const query = new URLSearchParams(useLocation().search)
   useTitle('Quote')
 
-  const get = (n, d) => query.get(n) ?? d
+  const get = (n, d) => query.get(n) || d
 
   return <Quote quote={get('q', '?q=')} r={get('r', '- &r=')} />
 }

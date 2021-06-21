@@ -30,7 +30,7 @@ const Details = () => {
         </FadeIn>
       </div>
       <FadeIn className='preview' delay={0.4}>
-        <iframe src={project.backupHref ?? project.href} style={{ pointerEvents }} />
+        <iframe src={project.backupHref ?? project.href} title={project.title} style={{ pointerEvents }} />
       </FadeIn>
       <FadeIn el='ul' delay={0.6}>
         <li>Repository: </li>

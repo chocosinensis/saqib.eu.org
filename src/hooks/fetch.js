@@ -60,7 +60,7 @@ export const useResource = (resource, param, redirect, initial) => {
 
       setData(targetData)
     }
-  }, [res])
+  }, [res, history, redirect, param, paramValue])
 
   return [data]
 }

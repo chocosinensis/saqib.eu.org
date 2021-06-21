@@ -1,15 +1,7 @@
 {
   "name": "saqib.ml",
-  "version": "2.10.8",
+  "version": "2.11.0",
   "private": true,
-  "dependencies": {
-    "framer-motion": "^3.2.2-rc.1",
-    "marked": "^2.0.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1"
-  },
   "scripts": {
     "start": "npx concurrently \"npm:start:react\" \"npm:watch:sass\"",
     "start:react": "react-scripts start",
@@ -19,16 +11,12 @@
     "build:sass": "npx sass src/assets/sass/main.sass src/assets/styles/main.css --style=expanded --no-source-map",
     "watch:sass": "npm run build:sass -- -w"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "framer-motion": "^3.2.2-rc.1",
+    "marked": "^2.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1"
   }
 }

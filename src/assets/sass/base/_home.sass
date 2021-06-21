@@ -12,10 +12,12 @@
       text-shadow: 0 0 5px $primary-l2
 
   .left
+    height: 450px
     display: flex
     flex-direction: column
     align-items: flex-start
     justify-content: space-between
+    transition: opacity 0.2s ease
 
     h1.name
       &,
@@ -71,9 +73,11 @@
     top: 25%
     left: 0
     opacity: 0.7
+    transition: opacity 0.2s ease
+    pointer-events: none
 
-  &
-    top: 15%
+    @include media($breakpoint-lg)
+      top: 20%
 
   .editor
     height: 450px
@@ -84,6 +88,28 @@
     z-index: 3
     box-shadow: 0 0 5px rgba($color: $primary, $alpha: 0.5)
     backdrop-filter: blur(15px) brightness(100%) drop-shadow(0 0 5px rgba($color: $primary, $alpha: 0.5))
+
+    &.maximized
+      position: absolute
+      top: 0
+      left: 0
+      height: 100%
+      width: 100%
+      transition: all 0.2s ease
+      transition-property: height, width
+
+      .body
+        height: 100%
+        padding: 50px 10%
+
+      textarea
+        font-family: 'Fira Code'
+        height: 100%
+        width: 100%
+        background: transparent
+        border: none
+        outline: none
+        @include code($text-l)
 
     header
       display: flex
@@ -148,6 +174,7 @@
       min-width: 60% !important
       max-width: 100% !important
       margin: auto
+      position: relative
 
     @include media($breakpoint-md)
       min-width: 80% !important
@@ -157,8 +184,40 @@
       min-width: 100% !important
       max-width: 100% !important
 
+    &icon
+      position: absolute
+      right: 50%
+      flex: 0.5
+      height: 450px
+      display: flex
+      align-items: flex-start
+      justify-content: flex-start
+      transform: translateX(50%)
+
+      div
+        height: fit-content
+        width: fit-content
+        color: $text-l
+        padding: 15px 20px 25px
+        background-image: linear-gradient(to top right, rgba($color: $primary, $alpha: 0.5), rgba($color: $primary-d1, $alpha: 0.1))
+        border-radius: 12px
+        text-shadow: 0 0 2px $primary-l2
+        box-shadow: 0 0 5px rgba($color: $primary, $alpha: 0.5)
+        backdrop-filter: blur(15px) brightness(100%) drop-shadow(0 0 5px rgba($color: $primary, $alpha: 0.5))
+
+      @include media($breakpoint-lg)
+        top: 40%
+        align-items: center
+        justify-content: center
+
   @include media($breakpoint-lg)
     flex-direction: column
+
+    .editoricon ~ svg
+      top: 38.5vh
+
+      @include media($breakpoint-lg)
+        top: 35.25vh
 
 #about
   display: flex
@@ -175,7 +234,7 @@
         margin-top: 20px
 
     p
-      margin: 20px 0
+      margin: 20px 15px 20px 0
 
   .img-cont
     height: 300px
@@ -218,6 +277,37 @@
 
   h1
     color: $text-l
+
+  .card
+    max-width: $breakpoint-sm
+    margin-left: auto
+    margin-right: auto
+
+    &.q
+      background: #11111160
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      box-shadow: 0 0 12px $text-d
+
+      & > *
+        margin: 20px auto
+
+      .search
+        margin-bottom: 30px
+
+        input
+          box-shadow: 0 0 12px $text-d
+
+      span
+        display: flex
+        justify-content: flex-end
+
+        a.float
+          display: inline-block
+          padding: 10px 15px
+          border-radius: 36px 0 0 36px
 
   .paras
     width: 100%

@@ -1,14 +1,12 @@
 import { FadeIn } from './'
 
-export const Search = ({ delay, value, set }) => (
+export const Search = ({ delay, value, set, placeholder }) => (
   <FadeIn delay={delay} className='search'>
-    <input type='text' placeholder='Enter Search Term' value={value} onChange={(e) => set(e.target.value)} />
+    <input type='text' {...{ value, placeholder }} onChange={(e) => set(e.target.value)} />
   </FadeIn>
 )
 
-Search.defaultProps = {
-  delay: 0.4,
-}
+Search.defaultProps = { delay: 0.4, placeholder: 'Enter Search Term' }
 
 const match = (src, term) => src.toLowerCase().includes(term.trim().toLowerCase())
 

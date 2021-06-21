@@ -26,7 +26,7 @@ const Tag = () => {
           repeatType: 'mirror',
           repeatDelay: 7.5,
         }}
-      ></motion.div>
+      />
       <FadeInText
         className={tag.type}
         onIter={() =>
