@@ -18,7 +18,7 @@ const Quran = () => {
         <br />
         القرآن الكريم
       </FadeIn>
-      <Search value={search} set={setSearch} delay={0.4} />
+      <Search value={search} set={setSearch} placeholder='Enter Surah' delay={0.4} />
       <section className='surahs'>
         {surahs.map((list, i) => (
           <div key={i} className='row'>

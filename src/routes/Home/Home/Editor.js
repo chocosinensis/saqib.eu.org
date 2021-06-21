@@ -49,7 +49,7 @@ const Editor = ({ set, isMaximized, loaded }) => {
           )}
         </div>
       </header>
-      {!isMaximized && <Shadow translate={{ from: '-10vw', to: '100vw' }} duration={0.5} />}
+      {!isMaximized && <Shadow duration={1.5} />}
       <div className='body'>
         {isMaximized ? (
           <textarea spellCheck='false' />

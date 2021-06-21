@@ -9,12 +9,12 @@ export const Cursor = () => {
   const [timer, setTimer] = useState(null)
   const history = useHistory()
 
-  const set = (x, y) => {
-    setTop(y)
-    setLeft(x)
-  }
-
   useEffect(() => {
+    const set = (x, y) => {
+      setTop(y)
+      setLeft(x)
+    }
+
     const move = ({ clientX, clientY, targetTouches }) => {
       setOpacity(0.5)
       clearTimeout(timer)
@@ -23,20 +23,24 @@ export const Cursor = () => {
       if (clientX && clientY) return set(clientX, clientY)
       else if (targetTouches) return set(targetTouches[0].clientX, targetTouches[0].clientY)
     }
+
     const expand = () => {
       setClicked(true)
       setTimeout(() => setClicked(false), 400)
     }
 
-    document.addEventListener('mousemove', move)
-    document.addEventListener('touchmove', move)
-    document.addEventListener('click', expand)
-
-    return () => {
-      document.removeEventListener('mousemove', move)
-      document.removeEventListener('touchmove', move)
-      document.removeEventListener('click', expand)
+    /** @param {'add' | 'remove'} d */
+    // prettier-ignore
+    const events = (d = 'add') => () => {
+      const fn = `${d}EventListener`
+      document[fn]('mousemove', move)
+      document[fn]('touchmove', move)
+      document[fn]('click', expand)
     }
+
+    events()()
+
+    return events('remove')
   }, [timer])
 
   useEffect(() => history.listen(() => scrollTo(0, 0)), [history])

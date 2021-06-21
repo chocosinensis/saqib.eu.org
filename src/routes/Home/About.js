@@ -12,7 +12,7 @@ const About = () => (
     </div>
     <div className='img-cont'>
       <div className='img'>
-        <Shadow translate={{ from: '0vw', to: '100vw' }} duration={1} />
+        <Shadow translate={{ from: '-20vw', to: '120vw' }} duration={1} />
         <img src={Me} alt='Loading Image...' />
       </div>
     </div>
