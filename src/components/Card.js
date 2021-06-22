@@ -14,7 +14,7 @@ export const Card = ({ className, href, title, author, i, nohyperlink, children 
   const content = <CardContent {...{ title, author }}>{children}</CardContent>
 
   return (
-    <FadeIn className={`card${className ? ` ${className}` : ''}`} delay={0.2 * i}>
+    <FadeIn className={`card ${className}`} delay={0.2 * i}>
       {nohyperlink ? <div>{content}</div> : <Link to={href}>{content}</Link>}
     </FadeIn>
   )

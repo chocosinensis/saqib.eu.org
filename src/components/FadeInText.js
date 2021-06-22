@@ -4,7 +4,7 @@ export const FadeInText = ({ code, className, onIter, children }) => {
   const [iter, setIter] = useState(0)
 
   const onAnimationIteration = () => {
-    setIter(iter == 0 ? 1 : 0)
+    setIter((iter) => (iter == 0 ? 1 : 0))
     if (iter == 1) onIter()
   }
 

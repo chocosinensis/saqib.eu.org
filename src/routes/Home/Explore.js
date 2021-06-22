@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { Card, Search } from '../../components'
@@ -14,13 +14,16 @@ const Q = ({ text }) =>
 const QuoteLink = () => {
   const [quote, setQuote] = useState('')
   const [r, setR] = useState('')
+  const button = useRef(null)
+
+  const onEnter = () => button.current.click()
 
   return (
     <Card nohyperlink className='q'>
-      <Search value={quote} set={setQuote} placeholder='Enter Quote' />
-      <Search value={r} set={setR} placeholder='Enter Footnote or Reference' />
+      <Search value={quote} set={setQuote} placeholder='Enter Quote' {...{ onEnter }} />
+      <Search value={r} set={setR} placeholder='Enter Footnote or Reference' {...{ onEnter }} />
       <span className='l'>
-        <Link to={`/quote?q=${quote}&r=${r}`} className='float hover-link'>
+        <Link to={`/quote?q=${quote}&r=${r}`} className='float hover-link' ref={button}>
           View Quote
         </Link>
       </span>

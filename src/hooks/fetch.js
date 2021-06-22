@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 
 export const useFetch = (route, initial = null) => {
   const [data, setData] = useState(initial)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const abC = new AbortController()
@@ -13,19 +14,22 @@ export const useFetch = (route, initial = null) => {
         const data = await res.json()
 
         setData(data)
+        setLoading(false)
       } catch (err) {
         if (err.name != 'AbortError') setData(null)
+        setLoading(false)
       }
     })()
 
     return () => abC.abort()
   }, [route])
 
-  return [data]
+  return [data, loading]
 }
 
 export const useLocalFetch = (resource) => {
   const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const abC = new AbortController()
@@ -36,15 +40,17 @@ export const useLocalFetch = (resource) => {
         const data = await res.json()
 
         setData(data[resource])
+        setLoading(false)
       } catch (err) {
         if (err.name != 'AbortError') setData(null)
+        setLoading(false)
       }
     })()
 
     return () => abC.abort()
   }, [resource])
 
-  return [data]
+  return [data, loading]
 }
 
 export const useResource = (resource, param, redirect, initial) => {

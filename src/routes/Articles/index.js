@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import marked from 'marked'
 
-import { Card, FadeIn, Search } from '../../components'
+import { Card, FadeIn, Loading, Search } from '../../components'
 import { useLocalFetch, useTitle } from '../../hooks'
 
 const Articles = () => {
   const query = new URLSearchParams(useLocation().search)
   const [search, setSearch] = useState(query.get('q') ?? '')
-  const [articles] = useLocalFetch('articles')
+  const [articles, loading] = useLocalFetch('articles')
 
   useTitle('Articles')
 
@@ -17,7 +17,9 @@ const Articles = () => {
       <FadeIn el='h2'>Articles</FadeIn>
       <Search value={search} set={setSearch} />
       <ul>
-        {articles &&
+        {loading ? (
+          <Loading />
+        ) : (
           articles
             .filter((article) => Search.match(article, search))
             .map(({ title, body, slug, author }, i) => (
@@ -31,7 +33,8 @@ const Articles = () => {
                   />
                 </Card>
               </li>
-            ))}
+            ))
+        )}
       </ul>
     </section>
   )

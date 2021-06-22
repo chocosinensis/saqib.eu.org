@@ -1,8 +1,15 @@
 import { FadeIn } from './'
 
-export const Search = ({ delay, value, set, placeholder }) => (
+export const Search = ({ delay, value, set, placeholder, onEnter }) => (
   <FadeIn delay={delay} className='search'>
-    <input type='text' {...{ value, placeholder }} onChange={(e) => set(e.target.value)} />
+    <input
+      type='text'
+      {...{ value, placeholder }}
+      onChange={(e) => set(e.target.value)}
+      onKeyUp={(e) => {
+        if (e.key === 'Enter') onEnter(e)
+      }}
+    />
   </FadeIn>
 )
 

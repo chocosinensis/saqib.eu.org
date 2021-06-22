@@ -6,15 +6,16 @@ export const useScroll = (initial, afterscroll) => {
   const [top, setTop] = useState(initial)
   const [prevScrollPos, setPrevScrollPos] = useState(pageYOffset)
 
-  useEffect(
-    () =>
-      document.addEventListener('scroll', () => {
-        const currentScrollPos = pageYOffset
-        setTop(prevScrollPos > currentScrollPos ? initial : afterscroll)
-        setPrevScrollPos(currentScrollPos)
-      }),
-    [prevScrollPos, initial, afterscroll]
-  )
+  useEffect(() => {
+    const scroll = () => {
+      const currentScrollPos = pageYOffset
+      setTop(prevScrollPos > currentScrollPos ? initial : afterscroll)
+      setPrevScrollPos(currentScrollPos)
+    }
+    document.addEventListener('scroll', scroll)
+
+    return () => document.removeEventListener('scroll', scroll)
+  }, [prevScrollPos, initial, afterscroll])
 
   return [top]
 }
@@ -22,8 +23,8 @@ export const useScroll = (initial, afterscroll) => {
 export const useTitle = (...titles) => {
   useEffect(() => {
     const title = `${titles.join(' « ')} » Nazmus Saqib`
-    if (document.title == title) return
 
     document.title = title
-  }, [titles])
+    // eslint-disable-next-line
+  }, [...titles])
 }

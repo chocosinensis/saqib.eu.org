@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 
-import { Card, FadeIn, Search } from '../../components'
+import { Card, FadeIn, Loading, Search } from '../../components'
 import { useFetch, useTitle } from '../../hooks'
 
 const Quran = () => {
   const query = new URLSearchParams(useLocation().search)
   const [search, setSearch] = useState(query.get('q') ?? '')
-  const [surahs] = useFetch('quran', [[], [], []])
+  const [surahs, loading] = useFetch('quran', [[], [], []])
 
   useTitle('Quran', 'القرآن الكريم')
 
@@ -20,18 +20,22 @@ const Quran = () => {
       </FadeIn>
       <Search value={search} set={setSearch} placeholder='Enter Surah' delay={0.4} />
       <section className='surahs'>
-        {surahs.map((list, i) => (
-          <div key={i} className='row'>
-            {list
-              .filter(({ eng }) => Search.match({ title: eng }, search))
-              .map(({ num, eng, ara, mng }, i) => (
-                <Card key={num} href={`/quran/${num}`} title={eng} author={mng} i={i / 100}>
-                  <p className='author design float num'>{num}</p>
-                  <h3 className='ara'>{ara}</h3>
-                </Card>
-              ))}
-          </div>
-        ))}
+        {loading ? (
+          <Loading />
+        ) : (
+          surahs.map((list, i) => (
+            <div key={i} className='row'>
+              {list
+                .filter(({ eng }) => Search.match({ title: eng }, search))
+                .map(({ num, eng, ara, mng }, i) => (
+                  <Card key={num} href={`/quran/${num}`} title={eng} author={mng} i={i / 100}>
+                    <p className='author design float num'>{num}</p>
+                    <h3 className='ara'>{ara}</h3>
+                  </Card>
+                ))}
+            </div>
+          ))
+        )}
       </section>
     </section>
   )

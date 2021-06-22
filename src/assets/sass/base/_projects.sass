@@ -44,6 +44,14 @@
       padding: 7px 12px
       margin: 10px
 
+  .float
+    @include media($breakpoint-md)
+      display: inline-block
+      max-width: calc(80%)
+      overflow: hidden !important
+      text-overflow: ellipsis !important
+      white-space: nowrap
+
   .contributors
     display: flex
     flex-direction: column
