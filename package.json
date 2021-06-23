@@ -1,6 +1,6 @@
 {
   "name": "saqib.ml",
-  "version": "2.11.6",
+  "version": "2.11.7",
   "private": true,
   "scripts": {
     "start": "npx concurrently \"npm:start:react\" \"npm:watch:sass\"",
