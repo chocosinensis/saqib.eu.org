@@ -6,10 +6,10 @@ export const Loading = () => (
       <div className='right' />
     </div>
     <ul>
-      <li />
-      <li />
-      <li />
-      <li />
+      {
+        // prettier-ignore
+        Array(18).fill(0).map(() => <li />)
+      }
     </ul>
   </div>
 )

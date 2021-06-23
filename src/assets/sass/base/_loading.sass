@@ -1,3 +1,5 @@
+$total: 18
+
 .book
   $color: $text-l
   $bs: 0 0 3px $primary-l2
@@ -80,14 +82,14 @@
       animation-iteration-count: infinite
 
       $i: 0
-      @while $i < 5
+      @while $i <= $total
         &:nth-child(#{$i})
           animation-name: page-#{$i}
 
         $i: $i + 1
 
 $i: 0
-@while $i < 5
+@while $i <= $total
   $delay: $i * 1.86
   $delay-after: $i * 1.74
   @keyframes page-#{$i}

@@ -16,12 +16,12 @@ export const useFetch = (route, initial = null) => {
         setData(data)
         setLoading(false)
       } catch (err) {
-        if (err.name != 'AbortError') setData(null)
-        setLoading(false)
+        if (err.name != 'AbortError') setData(initial)
+        else setLoading(false)
       }
     })()
 
-    return () => abC.abort()
+    return () => abC.abort() // eslint-disable-next-line
   }, [route])
 
   return [data, loading]
@@ -43,7 +43,7 @@ export const useLocalFetch = (resource) => {
         setLoading(false)
       } catch (err) {
         if (err.name != 'AbortError') setData(null)
-        setLoading(false)
+        else setLoading(false)
       }
     })()
 
