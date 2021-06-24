@@ -3,8 +3,6 @@
   font-family: $font
   cursor: none
   scroll-behavior: smooth
-  scrollbar-width: thin
-  scrollbar-color: $text-d rgba($color: $text, $alpha: 0.1)
 
   &,
   &::before,
@@ -18,19 +16,7 @@
     background-color: $text-d
     text-shadow: 0 0 3px $bg
 
-  &::-webkit-scrollbar
-    height: 0
-    width: 3px
-
-    &-thumb
-      background-color: $text-d
-      transition: all 0.2s ease
-
-      &:hover
-        background-color: rgba($color: $text-d, $alpha: 0.7)
-
-    &-track
-      background-color: rgba($color: $text, $alpha: 0.1)
+  @include scrollbar($text-d, rgba($color: $text, $alpha: 0.1))
 
 body
   background-color: $bg

@@ -39,10 +39,36 @@ $breakpoint-xl: 1200px
     &
       @content
 
+@mixin scrollbar($thumb, $track)
+  scrollbar-width: thin
+  scrollbar-color: $thumb $track
+
+  &::-webkit-scrollbar
+    height: 0
+    width: 3px
+
+    &-thumb
+      background-color: $thumb
+
+    &-track
+      background-color: $track
+
+@mixin nosb()
+  scrollbar-width: none
+
+  &::-webkit-scrollbar
+    height: 0
+    width: 0
+
+@mixin fontface($family, $src)
+  @font-face
+    font-family: $family
+    src: url('#{$font-url}#{$src}.ttf')
+
 ///////////////
 // @import...
 ///////////////
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Lobster&family=Sacramento&family=Fira+Code:wght@500')
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Lobster&family=Sacramento&family=Fira+Code:wght@400')
 @import url('https://use.fontawesome.com/releases/v5.5.0/css/all.css')
 
 ///////////////
@@ -70,10 +96,5 @@ $breakpoint-xl: 1200px
 ///////////////
 // @font-face...
 ///////////////
-@font-face
-  font-family: 'Siyam Rupali'
-  src: url('#{$font-url}Siyamrupali.ttf')
-
-@font-face
-  font-family: 'Janna LT'
-  src: url('#{$font-url}JannaLT.ttf')
+@include fontface('Siyam Rupali', 'Siyamrupali')
+@include fontface('Janna LT', 'JannaLT')

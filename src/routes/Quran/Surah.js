@@ -14,7 +14,7 @@ const Surah = () => {
 
   useEffect(() => {
     if (!data) return
-    if (data.length == 3 && (!data.info || !data.surah)) return router.push('/quran')
+    if (!data.success) return router.push('/quran')
     setAyahs(data)
   }, [data, router])
   useTitle(ayahs.info.eng, ayahs.info.ara)
@@ -27,7 +27,7 @@ const Surah = () => {
         {ayahs.info.ara}
       </FadeIn>
       <FadeIn el='section' delay={0.4} className='ayahs'>
-        {!['', '1', '9'].includes(ayahs.info.num) && (
+        {ayahs.info.bismillah && (
           <div className='ayah' id='bismillah'>
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
           </div>
@@ -35,24 +35,20 @@ const Surah = () => {
         {loading ? (
           <Loading />
         ) : (
-          ayahs.surah.map(({ num, ara, eng, ban }) => (
+          ayahs.surah.map(({ num, ara, ...ayah }) => (
             <div key={num} className='ayah'>
               <p className='num float design'>
                 {ayahs.info.num} : {num}
               </p>
               {lang.includes('ara') && <p className='ara'>{ara}</p>}
-              {lang.includes('eng') && (
-                <>
-                  <p className='num'>English - Saheeh International</p>
-                  <p className='eng'>{eng}</p>
-                </>
-              )}
-              {lang.includes('ban') && (
-                <>
-                  <p className='num'>Bengali - Mohiuddin Khan</p>
-                  <p className='ban'>{ban}</p>
-                </>
-              )}
+              {
+                /* prettier-ignore */ ['eng', 'ban'].map((l) => lang.includes(l) && (
+                  <>
+                    <p className='num'>{ayahs.info.translations[l]}</p>
+                    <p className={l}>{ayah[l]}</p>
+                  </>
+                ))
+              }
             </div>
           ))
         )}
