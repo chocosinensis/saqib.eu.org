@@ -1,10 +1,9 @@
-@import 'nav'
+@use '../util' as *
 
-@import 'home'
-@import 'articles'
-@import 'projects'
-@import 'quran'
-@import 'loading'
+@use 'home'
+@use 'articles'
+@use 'projects'
+@use 'quran'
 
 .notfound
   min-height: 85vh
@@ -26,5 +25,3 @@
     text-transform: uppercase
     letter-spacing: 0.2em
     margin-left: 10px
-
-@import 'footer'
