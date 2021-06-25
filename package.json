@@ -11,6 +11,14 @@
     "build:sass": "npx sass src/assets/sass/main.sass src/assets/styles/main.css --style=expanded --no-source-map",
     "watch:sass": "npm run build:sass -- -w"
   },
+  "homepage": "https://saqib.ml",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chocosinensis/saqib.ml.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chocosinensis/saqib.ml/issues"
+  },
   "dependencies": {
     "framer-motion": "^3.2.2-rc.1",
     "marked": "^2.0.0",
