@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { Card, FadeIn, Loading, Search } from '../../components'
 import { useLocalFetch, useTitle } from '../../hooks'
 
-const Projects = () => {
+export const Projects = () => {
   const query = new URLSearchParams(useLocation().search)
   const [search, setSearch] = useState(query.get('q') ?? '')
   const [projects, loading] = useLocalFetch('projects')

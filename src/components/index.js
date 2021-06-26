@@ -4,20 +4,20 @@ import { motion } from 'framer-motion'
 export * from './Card'
 export * from './Search'
 
-export const FadeIn = ({ el, className, duration, delay, __html, children }) => {
+export const FadeIn = ({ el, duration, delay, __html, children, ...other }) => {
   const El = motion[el]
 
   const props = {
-    className,
     initial: { opacity: 0 },
     animate: { opacity: 1 },
     transition: { ease: 'easeInOut', duration, delay },
+    ...other,
   }
 
   return __html ? <El dangerouslySetInnerHTML={{ __html }} {...props} /> : <El {...props}>{children}</El>
 }
 
-FadeIn.defaultProps = { el: 'div', className: '', duration: 0.2, delay: 0, __html: false }
+FadeIn.defaultProps = { el: 'div', duration: 0.2, delay: 0, __html: false }
 
 export const FadeInText = ({ code, className, onIter, children }) => {
   const [iter, setIter] = useState(0)

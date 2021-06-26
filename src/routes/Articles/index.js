@@ -5,7 +5,7 @@ import marked from 'marked'
 import { Card, FadeIn, Loading, Search } from '../../components'
 import { useLocalFetch, useTitle } from '../../hooks'
 
-const Articles = () => {
+export const Articles = () => {
   const query = new URLSearchParams(useLocation().search)
   const [search, setSearch] = useState(query.get('q') ?? '')
   const [articles, loading] = useLocalFetch('articles')
