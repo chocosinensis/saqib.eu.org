@@ -173,7 +173,7 @@
       "name": "choclacode",
       "author": ["Muhammad Nazmus", "Saqib"],
       "repository": "https://github.com/chocosinensis/choclacode",
-      "technologies": ["Node.js", "Express", "MongoDB", "Sass", "Pug", "Socket.io"]
+      "technologies": ["Node.js", "Express", "MongoDB", "Sass", "Pug", "Socket.io", "Jest"]
     },
     {
       "title": "Calculogists",
@@ -184,7 +184,7 @@
         ["", "Sakib", "Al Hasan"]
       ],
       "repository": "https://github.com/chocosinensis/calculogists",
-      "technologies": ["Node.js", "Express", "MongoDB", "React", "Material UI"]
+      "technologies": ["Node.js", "Express", "MongoDB", "Jest", "React", "Material UI"]
     },
     {
       "title": "MTPS",
@@ -192,15 +192,15 @@
       "name": "mtps",
       "author": ["", "Fateen", "Yusuf Mostafa"],
       "repository": "https://github.com/retrysamurai/money-transcation-and-payment-system",
-      "technologies": ["Node.js", "Express", "MongoDB", "EJS"]
+      "technologies": ["Node.js", "Express", "MongoDB", "EJS", "Jest"]
     },
     {
       "title": "Sakib",
-      "href": "https://alhasan.herokuapp.com",
+      "href": "https://sakib7.com",
       "name": "sakib",
       "author": ["", "Sakib", "Al Hasan"],
-      "repository": "https://github.com/saifsaki/sakib-new",
-      "technologies": ["Node.js", "Express", "EJS"]
+      "repository": "https://github.com/saifsaki/alhasan-reactified",
+      "technologies": ["React"]
     },
     {
       "title": "HomeNet",
@@ -209,7 +209,7 @@
       "name": "homenet",
       "author": ["Muhammad Nazmus", "Saqib"],
       "repository": "https://github.com/chocosinensis/homenet",
-      "technologies": ["Node.js", "Express", "MongoDB", "Pug", "Socket.io"]
+      "technologies": ["Node.js", "Express", "MongoDB", "Pug", "Sass", "Socket.io"]
     },
     {
       "title": "Task Master",
