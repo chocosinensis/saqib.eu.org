@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 
-import { FadeIn, Loading } from '../../components'
+import { FadeIn, Loading, SelectLangs } from '../../components'
 import { useFetch } from '../../hooks'
 
 export default () => {
   const q = new URLSearchParams(useLocation().search)
   const router = useHistory()
 
-  const lang = q.get('lang') || 'ara,eng,ban'
+  const [lang, setLang] = useState((q.get('lang') || 'ara,eng,ban').split(/\s*,\s*/g))
   const term = q.get('term') || ''
   const l = q.get('l') || 'eng'
 
-  const [data, loading] = useFetch(`quran/search?term=${term}&l=${l}&lang=${lang}`)
+  const [data, loading] = useFetch(`quran/search?term=${term}&l=${l}&lang=${lang.join(',')}`)
   const [{ ayahs }, setAyahs] = useState({ ayahs: [] })
 
   useEffect(() => {
@@ -28,6 +28,7 @@ export default () => {
         <br />
         Ayahs found : {ayahs.length}
       </FadeIn>
+      <SelectLangs {...{ lang, setLang }} />
       <FadeIn el='section' delay={0.4} className='ayahs'>
         <div className='ayah' id='bismillah'>
           بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ

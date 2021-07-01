@@ -3,15 +3,6 @@
 .quran
   padding: 30px 10%
 
-  .show.l
-    margin: 20px 0
-    display: flex
-    justify-content: flex-end
-
-    .float.end
-      border-radius: 36px 0 0 36px
-      padding: 10px 15px
-
   .card.search
     padding: 10px
     background-color: #00000083
@@ -99,6 +90,35 @@
 .surah
   padding: 30px 10%
 
+  .langs
+    max-width: $breakpoint-sm
+    margin-left: auto
+    margin-right: auto
+
+    & > div
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+
+      .item
+        margin: 5px auto
+        width: 100px
+
+        input
+          margin-right: 10px
+          border: 0
+          outline: none
+
+      .l
+        margin: 20px 10px 0
+        display: flex
+        justify-content: flex-end
+
+        .float
+          display: inline
+          padding: 7.5px 10px
+
   .ayahs
     .ayah
       background-color: $bg
@@ -168,3 +188,17 @@
     color: $text-l
     text-align: center
     text-shadow: 0 0 1px $primary-l1
+
+  .show.l
+    margin: 25px 0
+    display: flex
+    justify-content: flex-end
+    opacity: 0.4
+    transition: opacity 0.2s ease
+
+    &:hover
+      opacity: 0.8
+
+  .float.end
+    border-radius: 36px 0 0 36px
+    padding: 10px 15px

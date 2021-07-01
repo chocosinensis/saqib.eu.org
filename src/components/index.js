@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
-export * from './Card'
+import { Card } from './Card'
+
+export { Card }
 export * from './Search'
 
 export const FadeIn = ({ el, duration, delay, __html, children, ...other }) => {
@@ -56,14 +58,54 @@ export const Loading = () => (
       <div className='middle' />
       <div className='right' />
     </div>
-    <ul>
-      {
-        // prettier-ignore
-        Array(18).fill(0).map(() => <li />)
-      }
-    </ul>
+    <ul>{/* prettier-ignore */ Array(18).fill(0).map((v, i) => <li key={i} />)}</ul>
   </div>
 )
+
+export const SelectLangs = ({ lang, setLang }) => {
+  const ls = [
+    { value: 'ara', text: 'Arabic' },
+    { value: 'eng', text: 'English' },
+    { value: 'ban', text: 'Bengali' },
+  ]
+  const initLangs = () => ls.map(({ value }) => value).reduce((acc, cur) => ({ ...acc, [cur]: lang.includes(cur) }), {})
+  const [show, setShow] = useState(false)
+  const [langs, setLangs] = useState(initLangs())
+
+  const set = (l) => () => {
+    setLang(!langs[l] ? [...lang, l] : lang.filter((la) => la !== l))
+    setLangs((langs) => ({ ...langs, [l]: !langs[l] }))
+  }
+
+  useEffect(() => {
+    if (!Object.keys(langs).every((k) => !langs[k])) return
+    setLang(ls.map(({ value }) => value))
+    setLangs(initLangs())
+    // eslint-disable-next-line
+  }, [JSON.stringify(lang)])
+
+  return show ? (
+    <Card className='langs' delay={0.4} nohyperlink>
+      {ls.map(({ text, value }, i) => (
+        <FadeIn className='item' key={text} delay={i * 0.1}>
+          <input type='checkbox' value={value} checked={langs[value]} onChange={set(value)} />
+          {text}
+        </FadeIn>
+      ))}
+      <div className='l item'>
+        <FadeIn className='float hover-link end' delay={ls.length * 0.1} onClick={() => setShow((show) => !show)}>
+          Hide
+        </FadeIn>
+      </div>
+    </Card>
+  ) : (
+    <div className='show l'>
+      <FadeIn className='float hover-link end' delay={0.4} onClick={() => setShow((show) => !show)}>
+        Select Languages
+      </FadeIn>
+    </div>
+  )
+}
 
 export const Shadow = ({ translate: { from, to }, duration }) => (
   <motion.div
