@@ -22,9 +22,9 @@ const Surah = () => {
   return (
     <section className='surah'>
       <FadeIn el='h3' delay={0.2} className='title'>
-        {info.eng}
-        <br />
         {info.ara}
+        <br />
+        {info.eng}
       </FadeIn>
       <SelectLangs {...{ lang, setLang }} />
       <FadeIn el='section' delay={0.4} className='ayahs'>
