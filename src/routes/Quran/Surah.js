@@ -9,8 +9,8 @@ const Surah = () => {
   const { surah: surahno } = useParams()
   const router = useHistory()
   const q = new URLSearchParams(useLocation().search)
-  const [lang, setLang] = useState((q.get('lang') ?? 'ara,eng,ban').split(/\s*,\s*/g))
-  const [data, loading] = useFetch(`quran/${surahno}?lang=${lang.join(',')}`)
+  const [lang, setLang] = useState((q.get('lang') ?? '').split(/\s*,\s*/g))
+  const [data, loading] = useFetch(`quran/${surahno}${lang[0] !== '' ? `?lang=${lang.join(',')}` : ''}`)
 
   useEffect(() => {
     if (!data) return
@@ -43,7 +43,7 @@ const Surah = () => {
               </p>
               {lang.includes('ara') && <p className='ara'>{ara}</p>}
               {
-                /* prettier-ignore */ ['eng', 'ban'].map((l) => lang.includes(l) && (
+                /* prettier-ignore */ ['eng:sai', 'eng:arb', 'ban'].map((l) => lang.includes(l) && (
                   <>
                     {lang.length !== 1 && <p className='num'>{info.translations[l]}</p>}
                     <p className={l}>{ayah[l]}</p>
@@ -67,7 +67,7 @@ const Surah = () => {
 
 const links = (surah, lang) => {
   const links = []
-  const l = lang !== 'ara,eng,ban' ? `?lang=${lang}` : ''
+  const l = lang[0] !== '' ? `?lang=${lang}` : ''
 
   if (surah != '1') links.push([`/quran/${Number(surah) - 1}${l}`, 'Previous'])
   links.push(['/quran', 'Back'])

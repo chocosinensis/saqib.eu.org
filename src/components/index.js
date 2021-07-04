@@ -65,7 +65,8 @@ export const Loading = () => (
 export const SelectLangs = ({ lang, setLang }) => {
   const ls = [
     { value: 'ara', text: 'Arabic' },
-    { value: 'eng', text: 'English' },
+    { value: 'eng:sai', text: 'English » Saheeh I.' },
+    { value: 'eng:arb', text: 'English » Arberry' },
     { value: 'ban', text: 'Bengali' },
   ]
   const initLangs = () => ls.map(({ value }) => value).reduce((acc, cur) => ({ ...acc, [cur]: lang.includes(cur) }), {})
@@ -78,8 +79,8 @@ export const SelectLangs = ({ lang, setLang }) => {
   }
 
   useEffect(() => {
-    if (!Object.keys(langs).every((k) => !langs[k])) return
-    setLang(ls.map(({ value }) => value))
+    if (langs.ara || langs['eng:sai'] || langs.ban) return
+    setLang(['ara', 'eng:sai', 'ban'])
     setLangs(initLangs())
     // eslint-disable-next-line
   }, [JSON.stringify(lang)])
