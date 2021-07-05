@@ -79,7 +79,7 @@ export const SelectLangs = ({ lang, setLang }) => {
   }
 
   useEffect(() => {
-    if (langs.ara || langs['eng:sai'] || langs.ban) return
+    if (!Object.keys(langs).every((k) => !langs[k])) return
     setLang(['ara', 'eng:sai', 'ban'])
     setLangs(initLangs())
     // eslint-disable-next-line

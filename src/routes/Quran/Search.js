@@ -8,7 +8,7 @@ export default () => {
   const q = new URLSearchParams(useLocation().search)
   const router = useHistory()
 
-  const [lang, setLang] = useState((q.get('lang') || 'ara,eng,ban').split(/\s*,\s*/g))
+  const [lang, setLang] = useState((q.get('lang') || '').split(/\s*,\s*/g))
   const term = q.get('term') || ''
   const l = q.get('l') || 'eng'
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link, useHistory, useLocation, useParams } from 'react-router-dom'
 
 import { FadeIn, Loading, SelectLangs } from '../../components'
@@ -10,7 +10,7 @@ const Surah = () => {
   const router = useHistory()
   const q = new URLSearchParams(useLocation().search)
   const [lang, setLang] = useState((q.get('lang') ?? '').split(/\s*,\s*/g))
-  const [data, loading] = useFetch(`quran/${surahno}${lang[0] !== '' ? `?lang=${lang.join(',')}` : ''}`)
+  const [data, loading] = useFetch(`quran/${surahno}`)
 
   useEffect(() => {
     if (!data) return
@@ -44,11 +44,11 @@ const Surah = () => {
               {lang.includes('ara') && <p className='ara'>{ara}</p>}
               {
                 /* prettier-ignore */ ['eng:sai', 'eng:arb', 'ban'].map((l) => lang.includes(l) && (
-                  <>
-                    {lang.length !== 1 && <p className='num'>{info.translations[l]}</p>}
-                    <p className={l}>{ayah[l]}</p>
-                  </>
-                ))
+                    <Fragment key={l}>
+                      {lang.length !== 1 && <p className='num'>{info.translations[l]}</p>}
+                      <p className={l}>{ayah[l]}</p>
+                    </Fragment>
+                  ))
               }
             </div>
           ))
@@ -67,7 +67,7 @@ const Surah = () => {
 
 const links = (surah, lang) => {
   const links = []
-  const l = lang[0] !== '' ? `?lang=${lang}` : ''
+  const l = lang[0] !== '' ? `?lang=${lang.join(',')}` : ''
 
   if (surah != '1') links.push([`/quran/${Number(surah) - 1}${l}`, 'Previous'])
   links.push(['/quran', 'Back'])

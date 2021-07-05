@@ -17,7 +17,6 @@ export const useFetch = (route, initial = null) => {
         setLoading(false)
       } catch (err) {
         if (err.name != 'AbortError') setData(initial)
-        else setLoading(false)
       }
     })()
 
