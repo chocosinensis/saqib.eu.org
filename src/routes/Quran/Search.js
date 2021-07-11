@@ -43,7 +43,7 @@ export default () => {
               </p>
               {lang.includes('ara') && <p className='ara'>{ara}</p>}
               {
-                /* prettier-ignore */ ['eng', 'ban'].map((l) => lang.includes(l) && (
+                /* prettier-ignore */ ['eng:sai', 'eng:arb', 'ban'].map((l) => lang.includes(l) && (
                   <>
                     <p className='num'>{info.translations[l]}</p>
                     <p className={l}>{ayah[l]}</p>

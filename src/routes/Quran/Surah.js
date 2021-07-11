@@ -10,7 +10,8 @@ const Surah = () => {
   const router = useHistory()
   const q = new URLSearchParams(useLocation().search)
   const [lang, setLang] = useState((q.get('lang') ?? '').split(/\s*,\s*/g))
-  const [data, loading] = useFetch(`quran/${surahno}`)
+  const l = lang[0] !== '' ? `?lang=${lang.join(',')}` : ''
+  const [data, loading] = useFetch(`quran/${surahno}${l}`)
 
   useEffect(() => {
     if (!data) return
