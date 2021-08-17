@@ -9,6 +9,7 @@ prod:
 		cd build && \
 		cp index.html 200.html && \
 		npx surge && \
+		npx surge --domain saqib.surge.sh && \
 		cd ..
 
 push:

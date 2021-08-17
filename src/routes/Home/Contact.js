@@ -3,8 +3,9 @@ const Contact = () => (
     <h1>Contact</h1>
     <div className='float'>
       <span>
-        <a className='link' href='mailto:contact@saqib.ml' target='_blank'>
-          <code>contact</code>@<span className='style'>saqib</span>.<span className='design'>eu.org</span>
+        <a className='link' href='mailto:contact@saqib.eu.org' target='_blank'>
+          <code>contact</code>@<span className='style'>saqib</span>
+          <span className='design'>.eu.org</span>
         </a>
       </span>
     </div>
