@@ -4,7 +4,7 @@ run:
 
 # production
 prod:
-	npm run build && \
+	@npm run build && \
 		firebase deploy && \
 		cd build && \
 		cp index.html 200.html && \
