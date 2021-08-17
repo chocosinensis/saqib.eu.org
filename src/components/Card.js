@@ -20,6 +20,6 @@ export const Card = ({ className, href, title, author, i, nohyperlink, children 
   )
 }
 
-Card.defaultProps = { i: 0, nohyperlink: false }
+Card.defaultProps = { i: 0, nohyperlink: false, href: '', className: '' }
 
 export default Card

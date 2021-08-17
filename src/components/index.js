@@ -89,7 +89,7 @@ export const SelectLangs = ({ lang, setLang }) => {
     <Card className='langs' delay={0.4} nohyperlink>
       {ls.map(({ text, value }, i) => (
         <FadeIn className='item' key={text} delay={i * 0.1}>
-          <input type='checkbox' value={value} checked={langs[value]} onChange={set(value)} />
+          <input type='checkbox' value={value} aria-label={value} checked={langs[value]} onChange={set(value)} />
           {text}
         </FadeIn>
       ))}

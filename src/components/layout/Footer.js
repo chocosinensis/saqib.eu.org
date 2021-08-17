@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 const links = [
-  ['https://github.com/chocosinensis/saqib.ml', 'github'],
+  ['https://github.com/chocosinensis/saqib.eu.org', 'github'],
   ['https://twitter.com/ChocoSinensis', 'twitter'],
   ['https://youtube.com/channel/UCuxNNDSPkN4MTbyubs9OQfQ', 'youtube'],
   ['https://instagram.com/chocosinensis', 'instagram'],

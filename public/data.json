@@ -160,11 +160,11 @@
   "projects": [
     {
       "title": "Saqib",
-      "href": "https://saqib.ml",
-      "name": "saqib.ml",
+      "href": "http://saqib.eu.org",
+      "name": "saqib.eu.org",
       "author": ["Muhammad Nazmus", "Saqib"],
-      "repository": "https://github.com/chocosinensis/saqib.ml",
-      "technologies": ["React", "Framer Motion", "Sass"]
+      "repository": "https://github.com/chocosinensis/saqib.eu.org",
+      "technologies": ["React", "Framer Motion", "Sass", "Jest"]
     },
     {
       "title": "Choclacode",
@@ -204,7 +204,7 @@
     },
     {
       "title": "HomeNet",
-      "href": "http://homenet.saqib.ml",
+      "href": "http://homenet.saqib.eu.org",
       "backupHref": "https://homenet-saqib.herokuapp.com",
       "name": "homenet",
       "author": ["Muhammad Nazmus", "Saqib"],
@@ -237,7 +237,7 @@
     },
     {
       "title": "Saqib v1",
-      "href": "http://v1.saqib.ml",
+      "href": "http://v1.saqib.eu.org",
       "backupHref": "https://saqibmlv1.herokuapp.com",
       "name": "saqib_v1",
       "author": ["Muhammad Nazmus", "Saqib"],

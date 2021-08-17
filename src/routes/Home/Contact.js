@@ -4,7 +4,7 @@ const Contact = () => (
     <div className='float'>
       <span>
         <a className='link' href='mailto:contact@saqib.ml' target='_blank'>
-          <code>contact</code>@<span className='style'>saqib</span>.<span className='design'>ml</span>
+          <code>contact</code>@<span className='style'>saqib</span>.<span className='design'>eu.org</span>
         </a>
       </span>
     </div>

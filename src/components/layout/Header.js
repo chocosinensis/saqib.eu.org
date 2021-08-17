@@ -30,7 +30,7 @@ export const Header = () => {
     <>
       <header style={{ top }}>
         <div className='logo'>
-          <Link to='/' className='style'>
+          <Link to='/' className='style' onClick={() => setAside(false)}>
             Saqib
           </Link>
         </div>

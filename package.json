@@ -1,6 +1,6 @@
 {
-  "name": "saqib.ml",
-  "version": "2.12.6",
+  "name": "saqib.eu.org",
+  "version": "2.13.0",
   "private": true,
   "scripts": {
     "start": "npx concurrently \"npm:start:react\" \"npm:watch:sass\"",
@@ -11,15 +11,18 @@
     "build:sass": "npx sass src/assets/sass/main.sass src/assets/styles/main.css --style=expanded --no-source-map",
     "watch:sass": "npm run build:sass -- -w"
   },
-  "homepage": "https://saqib.ml",
+  "homepage": "http://saqib.eu.org",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chocosinensis/saqib.ml.git"
+    "url": "git+https://github.com/chocosinensis/saqib.eu.org.git"
   },
   "bugs": {
-    "url": "https://github.com/chocosinensis/saqib.ml/issues"
+    "url": "https://github.com/chocosinensis/saqib.eu.org/issues"
   },
   "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.0",
     "framer-motion": "^3.2.2-rc.1",
     "marked": "^2.0.0",
     "react": "^17.0.1",
