@@ -1,4 +1,4 @@
-## [saqib.ml](https://saqib.ml)
+## [saqib.eu.org](http://saqib.eu.org)
 
 ---
 
