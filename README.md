@@ -4,7 +4,7 @@
 
 <br>
 
-Official website of [Nazmus Saqib](https://saqib.ml),
+Official website of [Nazmus Saqib](http://saqib.eu.org),
 AKA [`Choclacode`](http://choclacode.eu.org)
 
 These are the source files for the website, which was created using [`React`](https://reactjs.org), [React Router](https://reactrouter.com) and [Framer Motion](https://framer.com/motion).
@@ -15,13 +15,11 @@ These are the source files for the website, which was created using [`React`](ht
 
 To run this locally, make sure you have [`Node.js`](https://nodejs.org) installed.
 
-Fork and clone this repository.
-
 Open the project directory in your terminal and install the depencdencies.
 
 ```bash
-$ git clone https://github.com/<yourname>/saqib.ml.git
-$ cd saqib.ml
+$ git clone https://github.com/chocosinensis/saqib.eu.org.git saqib
+$ cd saqib
 $ npm i # "npm install" will also work
 ```
 
