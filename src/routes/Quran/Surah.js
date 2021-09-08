@@ -68,7 +68,7 @@ const Surah = () => {
 
 const links = (surah, lang) => {
   const links = []
-  const l = lang[0] !== '' ? `?lang=${lang.join(',')}` : ''
+  const l = lang[0] !== '' || lang.join(',') !== 'ara,eng:sai,ban' ? `?lang=${lang.join(',')}` : ''
 
   if (surah != '1') links.push([`/quran/${Number(surah) - 1}${l}`, 'Previous'])
   links.push(['/quran', 'Back'])

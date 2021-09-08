@@ -26,19 +26,11 @@ $font-url: 'https://choclacode.herokuapp.com/public/assets/fonts/'
 $bg: rgba($color: $text-d, $alpha: 0.95)
 
 // $breakpoints...
-$breakpoint-sm: 576px
-$breakpoint-md: 768px
-$breakpoint-lg: 992px
-$breakpoint-xl: 1200px
+$breakpoints: ('sm': 576px, 'md': 768px, 'lg': 992px, 'xl': 1200px)
 
 ///////////////
 // @mixin...
 ///////////////
-@mixin media($max-width)
-  @media screen and (max-width: $max-width)
-    &
-      @content
-
 @mixin scrollbar($thumb, $track)
   scrollbar-width: thin
   scrollbar-color: $thumb $track
@@ -53,7 +45,7 @@ $breakpoint-xl: 1200px
     &-track
       background-color: $track
 
-@mixin nosb()
+@mixin nosb
   scrollbar-width: none
 
   &::-webkit-scrollbar
@@ -64,6 +56,23 @@ $breakpoint-xl: 1200px
   @font-face
     font-family: $family
     src: url('#{$font-url}#{$src}.ttf')
+
+// media
+@mixin sm
+  @media screen and (max-width: map-get($breakpoints, 'sm'))
+    @content
+
+@mixin md
+  @media screen and (max-width: map-get($breakpoints, 'md'))
+    @content
+
+@mixin lg
+  @media screen and (max-width: map-get($breakpoints, 'lg'))
+    @content
+
+@mixin xl
+  @media screen and (max-width: map-get($breakpoints, 'xl'))
+    @content
 
 ///////////////
 // @import...
