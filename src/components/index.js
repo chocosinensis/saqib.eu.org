@@ -79,6 +79,7 @@ export const SelectLangs = ({ lang, setLang }) => {
   }
 
   useEffect(() => {
+    localStorage.setItem('lang', JSON.stringify(lang))
     if (!Object.keys(langs).every((k) => !langs[k])) return
     setLang(['ara', 'eng:sai', 'ban'])
     setLangs(initLangs())
