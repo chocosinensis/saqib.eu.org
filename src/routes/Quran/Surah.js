@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react'
-import { Link, useHistory, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams, useLocation } from 'react-router-dom'
 
 import { FadeIn, Loading, SelectLangs } from '../../components'
 import { useFetch, useTitle } from '../../hooks'
@@ -8,9 +8,10 @@ const Surah = () => {
   const [{ info, surah }, setAyahs] = useState({ info: { num: '', eng: '', ara: '', mng: '' }, surah: [] })
   const { surah: surahno } = useParams()
   const router = useHistory()
+  const a = new URLSearchParams(useLocation().search).get('a') ?? ''
   const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang') || '[]'))
-  const l = lang[0] !== '' ? `?lang=${lang.join(',')}` : ''
-  const [data, loading] = useFetch(`quran/${surahno}${l}`)
+  const l = lang[0] !== '' ? `&lang=${lang.join(',')}` : ''
+  const [data, loading] = useFetch(`quran/${surahno}?range=${a}${l}`)
 
   useEffect(() => {
     if (!data) return
@@ -70,7 +71,7 @@ const Surah = () => {
         )}
       </FadeIn>
       <FadeIn el='ul' className='nav' delay={0.6}>
-        {links(surahno).map(([href, text]) => (
+        {links(surahno, a).map(([href, text]) => (
           <Link key={text} to={href} className='float hover-link'>
             {text}
           </Link>
@@ -80,10 +81,11 @@ const Surah = () => {
   )
 }
 
-const links = (surah) => {
+const links = (surah, a) => {
   const links = []
 
   if (surah != '1') links.push([`/quran/${parseInt(surah) - 1}`, 'Previous'])
+  if (a !== '') links.push([`/quran/${surah}`, 'Full'])
   links.push(['/quran', 'Back'])
   if (surah != '114') links.push([`/quran/${parseInt(surah) + 1}`, 'Next'])
 

@@ -48,20 +48,22 @@ export default () => {
           <Loading />
         ) : (
           ayahs.map(({ info, num, ara, ...ayah }) => (
-            <div key={`${info.num}:${num}`} className='ayah'>
-              <p className='num float design'>
-                {info.num} : {num}
-              </p>
-              {lang.includes('ara') && <p className='ara'>{ara}</p>}
-              {
-                /* prettier-ignore */ ['eng:sai', 'eng:arb', 'ban'].map((l) => lang.includes(l) && (
-                  <Fragment key={l}>
-                    <p className='num'>{info.translations[l]}</p>
-                    <p className={l == 'ban' ? 'ban' : l}>{ayah[l]}</p>
-                  </Fragment>
-                ))
-              }
-            </div>
+            <Link key={`${info.num}:${num}`} to={`/quran/${info.num}?a=${num}`}>
+              <div className='ayah'>
+                <p className='num float design'>
+                  {info.num} : {num}
+                </p>
+                {lang.includes('ara') && <p className='ara'>{ara}</p>}
+                {
+                  /* prettier-ignore */ ['eng:sai', 'eng:arb', 'ban'].map((l) => lang.includes(l) && (
+                    <Fragment key={l}>
+                      <p className='num'>{info.translations[l]}</p>
+                      <p className={l == 'ban' ? 'ban' : l}>{ayah[l]}</p>
+                    </Fragment>
+                  ))
+                }
+              </div>
+            </Link>
           ))
         )}
       </FadeIn>
