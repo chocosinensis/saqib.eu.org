@@ -20,7 +20,7 @@ const Home = () => {
         <Me />
         <Tag />
       </div>
-      {/* <Editor is={{ isMaximized, isMinimized, isClosed }} set={{ setMaximized, setMinimized, setClosed }} /> */}
+      <Editor is={{ isMaximized, isMinimized, isClosed }} set={{ setMaximized, setMinimized, setClosed }} />
       <Plant opacity={is(0, 0.7)} />
       <WaveBottom />
     </section>
