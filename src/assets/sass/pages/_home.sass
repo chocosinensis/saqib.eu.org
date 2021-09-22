@@ -67,7 +67,7 @@
       flex: 2
       align-items: inherit
 
-  svg
+  svg.plant
     max-width: map-get($breakpoints, 'xl')
     position: absolute
     top: 25%
@@ -210,6 +210,50 @@
         align-items: center
         justify-content: center
 
+  .wave
+    &-top
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      width: 100%
+      overflow: hidden
+      line-height: 0
+
+      svg
+        position: relative
+        display: block
+        width: calc(150% + 1.3px)
+        height: 80px
+        transform: rotateY(180deg)
+
+        @include lg
+          height: 60px
+
+        @include sm
+          height: 30px
+
+      .shape-fill
+        fill: $text-d
+
+    &-bottom
+      position: absolute
+      bottom: 0
+      left: 0
+      width: 100%
+      overflow: hidden
+      line-height: 0
+      transform: rotate(180deg)
+
+      svg
+        position: relative
+        display: block
+        width: calc(150% + 1.3px)
+        height: 100px
+
+      .shape-fill
+        fill: #000000
+
   @include lg
     flex-direction: column
 
@@ -325,7 +369,26 @@
 
 #contact
   background-color: rgba($color: $text-d, $alpha: 0.5)
-  padding: 50px 10%
+  padding: 50px 10% 100px
+  position: relative
 
   h1
     color: $text-l
+
+  .wave-bottom
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    overflow: hidden
+    line-height: 0
+    transform: rotate(180deg)
+
+    svg
+      position: relative
+      display: block
+      width: calc(150% + 1.3px)
+      height: 100px
+
+    .shape-fill
+      fill: #000000
