@@ -5,7 +5,7 @@
 <br>
 
 Official website of [Nazmus Saqib](http://saqib.eu.org),
-AKA [`Choclacode`](http://choclacode.eu.org)
+AKA **_αιυ** / [`ChocoSinensis`](http://choclacode.eu.org)
 
 These are the source files for the website, which was created using [`React`](https://reactjs.org), [React Router](https://reactrouter.com) and [Framer Motion](https://framer.com/motion).
 
