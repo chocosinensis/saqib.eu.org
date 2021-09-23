@@ -70,7 +70,6 @@ pre,
   &-top,
   &-bottom
     position: absolute
-    top: 0
     left: 0
     width: 100%
     overflow: hidden
@@ -83,6 +82,18 @@ pre,
 
       .shape-fill
         fill: $text-d
+
+      @include lg
+        height: 60px
+
+      @include sm
+        height: 30px
+
+  &-top
+    top: 0
+
+  &-bottom
+    bottom: 0
 
 .quote
   padding: 20px 10%
