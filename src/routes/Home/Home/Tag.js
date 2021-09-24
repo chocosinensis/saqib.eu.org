@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import { FadeInText } from '../../../components'
 
 const Tag = () => {
-  const [tag, setTag] = useState({ type: 'code', text: 'Developer' })
+  const [tag, setTag] = useState({ type: 'hi', text: '_αιυㅤ' })
 
   return (
     <motion.div
@@ -30,10 +30,10 @@ const Tag = () => {
       <FadeInText
         className={tag.type}
         onIter={() =>
+          // prettier-ignore
           setTag({
-            type: tag.type === 'code' ? 'design' : tag.type === 'design' ? '' : tag.type === '' ? 'code' : '',
-            text:
-              tag.type === 'code' ? 'Designer' : tag.type === 'design' ? 'Student' : tag.type === '' ? 'Developer' : '',
+            type: tag.type === 'hi' ? 'code' : tag.type === 'code' ? 'design' : tag.type === 'design' ? '' : tag.type === '' ? 'hi' : '',
+            text: tag.type === 'hi' ? 'Developer' : tag.type === 'code' ? 'Designer' : tag.type === 'design' ? 'Student' : tag.type === '' ? '_αιυㅤ' : '',
           })
         }
       >
