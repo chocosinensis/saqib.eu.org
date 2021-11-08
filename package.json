@@ -1,6 +1,6 @@
 {
   "name": "saqib.eu.org",
-  "version": "2.13.9",
+  "version": "2.14.0",
   "private": true,
   "scripts": {
     "start": "npx concurrently \"npm:start:react\" \"npm:watch:sass\"",
@@ -27,7 +27,7 @@
     "marked": "^2.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
+    "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.1"
   }
 }

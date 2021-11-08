@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export const useFetch = (route, initial = null) => {
   const [data, setData] = useState(initial)
@@ -56,16 +56,16 @@ export const useResource = (resource, param, redirect, initial) => {
   const [data, setData] = useState(initial)
   const [res] = useLocalFetch(resource)
   const { [param]: paramValue } = useParams()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (res) {
       const targetData = res.find((r) => r[param] == paramValue)
-      if (!targetData) return history.push(redirect)
+      if (!targetData) return navigate(redirect)
 
       setData(targetData)
     }
-  }, [res, history, redirect, param, paramValue])
+  }, [res, navigate, redirect, param, paramValue])
 
   return [data]
 }

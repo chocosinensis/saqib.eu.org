@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 export const Cursor = () => {
   const [top, setTop] = useState(-40)
@@ -7,7 +7,7 @@ export const Cursor = () => {
   const [opacity, setOpacity] = useState(0)
   const [clicked, setClicked] = useState(false)
   const [timer, setTimer] = useState(null)
-  const history = useHistory()
+  const location = useLocation()
 
   useEffect(() => {
     const set = (x, y) => {
@@ -43,7 +43,7 @@ export const Cursor = () => {
     return events('remove')
   }, [timer])
 
-  useEffect(() => history.listen(() => scrollTo(0, 0)), [history])
+  useEffect(() => scrollTo(0, 0), [location])
 
   return (
     <div style={{ top, left, opacity }} className={`cursor ${clicked ? 'expand' : ''}`}>

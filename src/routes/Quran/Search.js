@@ -1,12 +1,12 @@
 import { Fragment, useEffect, useState } from 'react'
-import { Link, useHistory, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 import { FadeIn, Loading, SelectLangs } from '../../components'
 import { useFetch, useTitle } from '../../hooks'
 
 export default () => {
   const q = new URLSearchParams(useLocation().search)
-  const router = useHistory()
+  const navigate = useNavigate()
 
   const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang') || '[]'))
   const term = q.get('term') || ''
@@ -17,18 +17,18 @@ export default () => {
 
   useEffect(() => {
     if (!data) return
-    if (!data.success) return router.push('/quran')
+    if (!data.success) return navigate('/quran', { replace: true })
     setAyahs(data)
-  }, [data, router])
+  }, [data, navigate])
 
   useEffect(() => {
     const back = (e) => {
-      if (e.ctrlKey && e.key == 'ArrowLeft') router.push('/quran')
+      if (e.ctrlKey && e.key == 'ArrowLeft') navigate('/quran', { replace: true })
     }
 
     document.addEventListener('keyup', back)
     return () => document.removeEventListener('keyup', back)
-  }, [router])
+  }, [navigate])
 
   useTitle(term, 'Search', 'Quran')
 

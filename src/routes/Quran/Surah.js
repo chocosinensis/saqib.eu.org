@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react'
-import { Link, useHistory, useParams, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useParams, useLocation } from 'react-router-dom'
 
 import { FadeIn, Loading, SelectLangs } from '../../components'
 import { useFetch, useTitle } from '../../hooks'
@@ -7,7 +7,7 @@ import { useFetch, useTitle } from '../../hooks'
 const Surah = () => {
   const [{ info, surah }, setAyahs] = useState({ info: { num: '', eng: '', ara: '', mng: '' }, surah: [] })
   const { surah: surahno } = useParams()
-  const router = useHistory()
+  const navigate = useNavigate()
   const a = new URLSearchParams(useLocation().search).get('a') ?? ''
   const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang') || '[]'))
   const l = lang[0] !== '' ? `&lang=${lang.join(',')}` : ''
@@ -15,23 +15,23 @@ const Surah = () => {
 
   useEffect(() => {
     if (!data) return
-    if (!data.success) return router.push('/quran')
+    if (!data.success) return navigate('/quran', { replace: true })
     setAyahs(data)
-  }, [data, router])
+  }, [data, navigate])
 
   useEffect(() => {
     const navigate = (e) => {
       const s = parseInt(surahno)
       if (e.ctrlKey) {
-        if (e.key == 'ArrowLeft') router.push(e.shiftKey ? s > 1 && `/quran/${s - 1}` : '/quran')
-        if (e.key == 'ArrowRight') e.shiftKey && s < 114 && router.push(`/quran/${s + 1}`)
+        if (e.key == 'ArrowLeft') navigate(e.shiftKey ? s > 1 && `/quran/${s - 1}` : '/quran')
+        if (e.key == 'ArrowRight') e.shiftKey && s < 114 && navigate(`/quran/${s + 1}`)
       }
     }
 
     document.addEventListener('keyup', navigate)
     return () => document.removeEventListener('keyup', navigate)
     // eslint-disable-next-line
-  }, [JSON.stringify(lang), router, surahno])
+  }, [JSON.stringify(lang), navigate, surahno])
 
   useTitle(info.eng, info.ara)
 

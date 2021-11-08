@@ -11,13 +11,13 @@ export default () => (
     <Quote
       quote='O Tranquil Soul! Return to your Lord, well pleased, well pleasing.'
       r='Al-Fajr 89 : 27-28'
-      wave={{ bottom: 'rgba(0,0,0,0.5)' }}
+      wave={{ bottom: 'rgba(0, 0, 0, 0.5)' }}
     />
     <Explore />
     <Quote
       quote='Fear Allah, Wherever you are.'
       r='- Prophet Muhammad (PBUH)'
-      wave={{ top: 'rgba(0,0,0,0.5)', bottom: 'rgba(0,0,0,0.5)' }}
+      wave={{ top: 'rgba(0, 0, 0, 0.5)', bottom: 'rgba(0, 0, 0, 0.5)' }}
     />
     <Contact />
   </>

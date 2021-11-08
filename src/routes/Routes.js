@@ -1,28 +1,31 @@
-import { Switch, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import { Home, Quote, NotFound } from './'
 import { Articles, ArticleDetails } from './Articles'
 import { Projects, ProjectDetails } from './Projects'
 import { Quran, Surah, SearchAyahs } from './Quran'
 
-const Routes = () => (
-  <Switch>
-    <Route exact path='/' component={Home} />
+const routes = [
+  { path: '/', Element: Home },
 
-    <Route exact path='/articles' component={Articles} />
-    <Route path='/articles/:slug' component={ArticleDetails} />
+  { path: '/articles', Element: Articles },
+  { path: '/articles/:slug', Element: ArticleDetails },
 
-    <Route exact path='/projects' component={Projects} />
-    <Route path='/projects/:name' component={ProjectDetails} />
+  { path: '/projects', Element: Projects },
+  { path: '/projects/:name', Element: ProjectDetails },
 
-    <Route exact path='/quran' component={Quran} />
-    <Route exact path='/quran/search' component={SearchAyahs} />
-    <Route path='/quran/:surah' component={Surah} />
+  { path: '/quran', Element: Quran },
+  { path: '/quran/:surah', Element: Surah },
+  { path: '/quran/search', Element: SearchAyahs },
 
-    <Route path='/quote' component={Quote} />
+  { path: '/quote', Element: Quote },
 
-    <Route path='*' component={NotFound} />
-  </Switch>
+  { path: '*', Element: NotFound },
+]
+
+export default () => (
+  <Routes>
+    {routes.map(({ path, Element }) =>
+      <Route key={path} path={path} element={<Element />} />)}
+  </Routes>
 )
-
-export default Routes
