@@ -10,6 +10,7 @@ const NotFound = () => {
         <FadeIn el='span' className='status' delay={0.2}>
           404
         </FadeIn>
+        <span className="slash">/</span>
         <FadeIn el='span' className='detail' delay={0.4}>
           Not Found
         </FadeIn>
