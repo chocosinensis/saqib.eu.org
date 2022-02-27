@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import marked from 'marked'
+import { parse } from 'marked'
 
 import { Card, FadeIn, Loading, Search } from '../../components'
 import { useLocalFetch, useTitle } from '../../hooks'
@@ -28,7 +28,7 @@ export const Articles = () => {
                   <p
                     className='snippet'
                     dangerouslySetInnerHTML={{
-                      __html: marked(`${body[0].split(' ').slice(0, 10).join(' ')}...`),
+                      __html: parse(`${body[0].split(' ').slice(0, 10).join(' ')}...`),
                     }}
                   />
                 </Card>

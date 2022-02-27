@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import marked from 'marked'
+import { parse } from 'marked'
 
 import { FadeIn } from '../../components'
 import { useResource, useTitle } from '../../hooks'
@@ -15,7 +15,7 @@ const Details = () => {
   })
 
   useEffect(() => {
-    if (article) set__html(marked(article.body.join('\n\n')))
+    if (article) set__html(parse(article.body.join('\n\n')))
   }, [article])
   useTitle(article.title, article.author[1])
 
