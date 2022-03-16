@@ -41,7 +41,7 @@ const SearchAyah = () => {
   ) : (
     <div className='show l'>
       <FadeIn className='float hover-link end' delay={0.4} onClick={() => setShow((show) => !show)}>
-        Show Search Bar
+        Search | <i className='fas fa-search' />
       </FadeIn>
     </div>
   )
