@@ -133,6 +133,10 @@
         font-size: 1.25rem
         color: $text-l
         transition: text-shadow 0.2s ease
+        .copy
+          top: 50%
+          transform: translateY(-55%)
+          padding: 2px 9px
 
       .num
         font-size: 0.8rem
@@ -162,6 +166,21 @@
         &#bismillah,
         .ara
           text-shadow: 0 0 0.5px $primary-l2
+
+      .copy
+        position: absolute
+        background: $bg
+        padding: 3px 9px
+        top: 9px
+        left: 100px
+        color: $text-l
+        opacity: 0.1
+        box-shadow: 0 0 6px $primary-l1
+        text-shadow: 0 0 0.25px $primary-l2
+        border-radius: 50%
+        transition: opacity 0.2s ease
+        &:hover
+          opacity: 1
 
   ul.nav
     margin: 40px 0 20px

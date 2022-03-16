@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 import { Card } from './Card'
@@ -84,6 +85,34 @@ export const Loading = () => (
     <ul>{/* prettier-ignore */ Array(18).fill(0).map((v, i) => <li key={i} />)}</ul>
   </div>
 )
+
+export const Ayah = ({ info, num, ara, lang, ayah, link = false }) => {
+  const langs = ['eng:sai', 'eng:arb', 'ban']
+  const float = <p className='num float design'>{info.num} : {num}</p>
+
+  const copy = () => {
+    const trs = langs.map((l) => lang.includes(l) ? `${info.translations[l]}\n${ayah[l]}` : '')
+      .filter((a) => a !== '')
+    const ay = `${info.num} : ${num}\n\n${ara}\n\n${trs.join('\n\n')}`
+    navigator.clipboard.writeText(ay)
+  }
+
+  return (
+    <div className='ayah'>
+      {link ? <Link to={link}>{float}</Link> : float}
+      <p className='copy' onClick={copy}><i className='fas fa-clipboard' /></p>
+      {lang.includes('ara') && <p className='ara'>{ara}</p>}
+      {
+        /* prettier-ignore */ langs.map((l) => lang.includes(l) && (
+          <Fragment key={l}>
+            {lang.length !== 1 && <p className='num'>{info.translations[l]}</p>}
+            <p className={l == 'ban' ? 'ban' : l}>{ayah[l]}</p>
+          </Fragment>
+        ))
+      }
+    </div>
+  )
+}
 
 export const SelectLangs = ({ lang, setLang }) => {
   const ls = [

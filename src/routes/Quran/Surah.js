@@ -1,7 +1,7 @@
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams, useLocation } from 'react-router-dom'
 
-import { FadeIn, Loading, SelectLangs } from '../../components'
+import { FadeIn, Loading, SelectLangs, Ayah } from '../../components'
 import { useFetch, useTitle } from '../../hooks'
 
 const Surah = () => {
@@ -49,26 +49,10 @@ const Surah = () => {
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
           </div>
         )}
-        {loading ? (
-          <Loading />
-        ) : (
-          surah.map(({ num, ara, ...ayah }) => (
-            <div key={num} className='ayah'>
-              <p className='num float design'>
-                {info.num} : {num}
-              </p>
-              {lang.includes('ara') && <p className='ara'>{ara}</p>}
-              {
-                /* prettier-ignore */ ['eng:sai', 'eng:arb', 'ban'].map((l) => lang.includes(l) && (
-                    <Fragment key={l}>
-                      {lang.length !== 1 && <p className='num'>{info.translations[l]}</p>}
-                      <p className={l == 'ban' ? 'ban' : l}>{ayah[l]}</p>
-                    </Fragment>
-                  ))
-              }
-            </div>
-          ))
-        )}
+        {loading ?
+          <Loading /> :
+          surah.map(({ num, ara, ...ayah }) =>
+            <Ayah key={num} {...{ info, num, ara, lang, ayah }} />)}
       </FadeIn>
       <FadeIn el='ul' className='nav' delay={0.6}>
         {links(surahno, a).map(([href, text]) => (

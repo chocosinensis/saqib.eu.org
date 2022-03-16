@@ -1,12 +1,13 @@
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 
-import { FadeIn, Loading, SelectLangs } from '../../components'
+import { FadeIn, Loading, SelectLangs, Ayah } from '../../components'
 import { useFetch, useTitle } from '../../hooks'
 
 export default () => {
   const q = new URLSearchParams(useLocation().search)
   const navigate = useNavigate()
+  const langs = ['eng:sai', 'eng:arb', 'ban']
 
   const [lang, setLang] = useState(JSON.parse(localStorage.getItem('lang') || '[]'))
   const term = q.get('term') || ''
@@ -14,6 +15,15 @@ export default () => {
 
   const [data, loading] = useFetch(`quran/search?term=${term}&l=${l}&lang=${lang.join(',')}`)
   const [{ ayahs }, setAyahs] = useState({ ayahs: [] })
+
+  const copy = () => {
+    const ays = ayahs.map(({ info, num, ara, ...ayah }) => {
+      const trs = langs.map((l) => lang.includes(l) ? `${info.translations[l]}\n${ayah[l]}` : '')
+        .filter((a) => a !== '')
+      return `${info.num} : ${num}\n\n${ara}\n\n${trs.join('\n\n')}`
+    }).join('\n\n\n')
+    navigator.clipboard.writeText(ays)
+  }
 
   useEffect(() => {
     if (!data) return
@@ -42,30 +52,13 @@ export default () => {
       <SelectLangs {...{ lang, setLang }} />
       <FadeIn el='section' delay={0.4} className='ayahs'>
         <div className='ayah' id='bismillah'>
+          <p className='copy' onClick={copy}><i className='fas fa-clipboard' /></p>
           بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
         </div>
-        {loading ? (
-          <Loading />
-        ) : (
-          ayahs.map(({ info, num, ara, ...ayah }) => (
-            <Link key={`${info.num}:${num}`} to={`/quran/${info.num}?a=${num}`}>
-              <div className='ayah'>
-                <p className='num float design'>
-                  {info.num} : {num}
-                </p>
-                {lang.includes('ara') && <p className='ara'>{ara}</p>}
-                {
-                  /* prettier-ignore */ ['eng:sai', 'eng:arb', 'ban'].map((l) => lang.includes(l) && (
-                    <Fragment key={l}>
-                      <p className='num'>{info.translations[l]}</p>
-                      <p className={l == 'ban' ? 'ban' : l}>{ayah[l]}</p>
-                    </Fragment>
-                  ))
-                }
-              </div>
-            </Link>
-          ))
-        )}
+        {loading ?
+          <Loading /> :
+          ayahs.map(({ info, num, ara, ...ayah }) => 
+            <Ayah key={`${info.num}:${num}`} link={`/quran/${info.num}?a=${num}`} {...{ info, num, ara, lang, ayah }} />)}
       </FadeIn>
       <FadeIn el='ul' className='nav' delay={0.6}>
         <Link to='/quran' className='float hover-link'>
